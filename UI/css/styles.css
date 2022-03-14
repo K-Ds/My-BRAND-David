@@ -1,0 +1,290 @@
+/* -------------- color palette ----------- */
+
+:root {
+    --color-primary: #000;
+    --color-secondary: #F2F1F5;
+    --color-accent: #00C6AF;
+    --color-body: #F2F1F5;
+    --border-radius: 30px;
+    --border--color: #ccc;
+}
+
+/* -------- TYPOGRAPHY ----------- */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: var(--color-body);
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 2.4rem;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-headings);
+    margin-bottom: 1rem;
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 7rem;
+
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+
+
+@media screen and (min-width:768px) {
+    body {
+        font-size: 1.8rem;
+    }
+
+    h1 {
+        font-size: 8rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    h3 {
+        font-size: 2.4rem;
+    }
+}
+
+/* -------- containers ------- */
+@media screen and (min-width:768px) {
+    .container {
+        margin: 0 3rem;
+        max-width: 1020px;
+    }
+}
+
+
+.section {
+    padding: 5rem 0;
+}
+
+/* -------- Links ------- */
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/* ------ lists ---------- */
+.list {
+    list-style: none;
+}
+
+/* -------- ICONS ---------- */
+.icon-container {
+    align-items: center;
+    border-radius: 100%;
+    display: inline-flex;
+    height: 5rem;
+    justify-content: center;
+    width: 5rem;
+    background-color: #ccc;
+}
+
+.icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: var(--color-primary);
+}
+
+/* ---------- Buttons --------- */
+.btn {
+    padding: 1rem 3rem;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 20px;
+}
+
+.btn--primary {
+    background: var(--color-primary);
+    color: var(--color-body);
+}
+
+.btn--secondary {
+    background: var(--color-secondary);
+}
+
+.btn--accent {
+    background: var(--color-accent);
+}
+
+/* -------background container----- */
+.poly-bg {
+    background: var(--color-primary);
+    height: 100vh;
+}
+
+@media screen and (min-width:768px) {
+    .bg-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: var(--color-secondary);
+        height: 100vh;
+    }
+
+    .poly-bg {
+        clip-path: polygon(100% 0%, 25% 0%, 0% 100%, 100% 100%);
+    }
+
+}
+
+/* ------ Nav ---------- */
+
+.nav {
+    position: relative;
+    display: flex;
+    background: var(--color-secondary);
+}
+
+.nav__list {
+    padding: 1rem;
+    padding-top: 80px;
+    margin: 0;
+    background-color: var(--color-primary);
+    overflow: hidden;
+}
+
+.nav__toggler {
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.nav__toggler.open {
+    opacity: 1;
+    max-height: 100vh;
+}
+
+.nav__link {
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    color: var(--color-body);
+}
+
+.nav__link>a {
+    color: inherit;
+}
+
+.nav__menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+@media screen and (min-width: 728px) {
+    .nav {
+        flex-direction: row;
+        padding: 2rem 0;
+
+    }
+
+    .nav__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        background-color: var(--color-secondary);
+    }
+
+    .nav__link {
+        color: var(--color-primary);
+        padding: 1rem 3rem;
+    }
+
+    .nav__link.active>a {
+        border-bottom: 3px solid black;
+    }
+
+    .nav__menu {
+        display: none;
+
+    }
+
+    .nav__toggler {
+        opacity: 1;
+        max-height: 100vh;
+        width: auto;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* ---------- Hero Section --------- */
+.section-hero {
+    background: var(--color-secondary);
+
+}
+
+.hero {
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.hero__data {
+    display: grid;
+    gap: 2rem 0;
+    vertical-align: middle;
+}
+
+.hero__description {
+    font-size: 2rem;
+}
+
+.hero__heading {
+    font-weight: 600;
+    line-height: 1;
+    font-size: 10rem;
+}
+
+.hero__sub-heading {
+    font-weight: 400;
+    font-size: 1.8rem;
+    opacity: 0.8;
+}
+
+.hero__btn {
+    width: 25rem;
+    justify-self: center;
+    padding: 2rem 4rem;
+    font-weight: 600;
+}
+
+@media screen and (min-width:768px) {
+    .hero {
+        text-align: left;
+        margin-left: 6rem;
+    }
+
+    .hero__btn {
+        justify-self: start;
+    }
+}
