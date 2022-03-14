@@ -71,7 +71,7 @@ p {
 /* -------- containers ------- */
 @media screen and (min-width:768px) {
     .container {
-        margin: 0 3rem;
+        margin: 0 15rem;
         max-width: 1140px;
     }
 }
@@ -225,11 +225,13 @@ a {
         align-items: center;
         padding: 0;
         background-color: var(--color-secondary);
+        margin-left: -3rem;
     }
 
     .nav__link {
         color: var(--color-primary);
         padding: 1rem 3rem;
+        background-color: var(--color-secondary);
     }
 
     .nav__link.active>a {
@@ -278,38 +280,33 @@ a {
     line-height: 1;
 }
 
-@media screen and (min-width:768px) {
-    .hero__heading {
-        font-size: 10rem;
-    }
-}
-
 .hero__sub-heading {
     font-weight: 400;
     font-size: 1.8rem;
     opacity: 0.8;
 }
 
-.hero__btn {
-    width: 25rem;
-    justify-self: center;
-    padding: 2rem 4rem;
-    font-weight: 600;
-}
-
 @media screen and (min-width:768px) {
-    .hero {
-        text-align: left;
-        margin-left: 6rem;
+    .hero__heading {
+        font-size: 10rem;
     }
+
+
+
 
     .hero__btn {
+        width: 25rem;
         justify-self: start;
+        padding: 2rem 4rem;
+        font-weight: 600;
+    }
+
+    .hero {
+        text-align: left;
     }
 }
 
-
-/* ---------- About Me --------------- */
+/* ---------- Services  --------------- */
 .section-about {
     position: relative;
 }
@@ -319,6 +316,7 @@ a {
     margin: 0 auto;
     color: var(--color-primary);
     text-align: left;
+    color: var(--color-secondary);
 }
 
 .service__card {
@@ -329,11 +327,6 @@ a {
     width: 8rem;
     height: 8rem;
     background-color: var(--color-accent);
-}
-
-.service__icon {
-    width: 5rem;
-    height: 5rem;
 }
 
 .service__icon {
@@ -373,11 +366,6 @@ a {
     }
 
     .service__icon {
-        width: 8rem;
-        height: 8rem;
-    }
-
-    .service__icon {
         width: 6rem;
         height: 6rem;
     }
@@ -386,4 +374,20 @@ a {
         font-size: 2rem;
         margin-top: 3rem;
     }
+}
+
+/* -------- about section ---------*/
+.section-about {
+    padding-top: 25rem;
+    background: var(--color-primary);
+    padding-bottom: 0;
+}
+
+.about__data {
+    background: var(--color-accent);
+    padding: 6rem 9rem;
+}
+
+.about__wave {
+    padding-top: 5rem;
 }
