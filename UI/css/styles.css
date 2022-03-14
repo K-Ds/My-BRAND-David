@@ -72,7 +72,7 @@ p {
 @media screen and (min-width:768px) {
     .container {
         margin: 0 3rem;
-        max-width: 1020px;
+        max-width: 1140px;
     }
 }
 
@@ -130,6 +130,23 @@ a {
     background: var(--color-accent);
 }
 
+/* -------- Grid ----------- */
+.grid {
+    display: grid;
+}
+
+@media screen and (min-width:768px) {
+    .grid--1x2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid--1x3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+
 /* -------background container----- */
 .poly-bg {
     background: var(--color-primary);
@@ -138,8 +155,6 @@ a {
 
 @media screen and (min-width:768px) {
     .bg-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
         background: var(--color-secondary);
         height: 100vh;
     }
@@ -250,7 +265,6 @@ a {
 }
 
 .hero__data {
-    display: grid;
     gap: 2rem 0;
     vertical-align: middle;
 }
@@ -287,4 +301,50 @@ a {
     .hero__btn {
         justify-self: start;
     }
+}
+
+
+/* ---------- About Me --------------- */
+.section-about {
+    position: relative;
+}
+
+.services {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    margin: 0 auto;
+    color: var(--color-primary);
+    text-align: center;
+    position: absolute;
+    top: -5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.service__card {
+    width: 40rem;
+    margin: 0 2rem;
+}
+
+.service__icon-container {
+    width: 10rem;
+    height: 10rem;
+    background-color: var(--color-accent);
+}
+
+.service__icon {
+    width: 8rem;
+    height: 8rem;
+}
+
+.service__icon {
+    width: 6rem;
+    height: 6rem;
+}
+
+.service__heading {
+    font-size: 2rem;
+    margin-top: 3rem;
 }
