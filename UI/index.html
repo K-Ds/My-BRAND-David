@@ -151,6 +151,10 @@
             improving my chops one design problem at a time.
           </p>
         </div>
+
+        <div class="profile__container">
+          <img src="images/Profile picture.jpg" alt="" class="profile__img" />
+        </div>
       </div>
       <svg
         class="about__wave"
@@ -160,12 +164,12 @@
         <path
           fill="#f2f1f5"
           fill-opacity="1"
-          d="M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,64C672,53,768,75,864,112C960,149,1056,203,1152,213.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          d="M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,64C672,53,769,75,864,112C960,149,1056,203,1152,213.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C769,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
       </svg>
     </section>
 
-    <section class="section section-portfolio">
+    <section class="container section section-portfolio">
       <header class="portfolio__header">
         <h2 class="portfolio__heading">Portfolio</h2>
         <p class="portfolio__description">
@@ -173,17 +177,59 @@
           projects
         </p>
       </header>
-      <div class="grid grid--1x3 portfolio__grid">
+      <div class="grid grid--1x2 portfolio__grid">
         <div class="portfolio__card">
-          <header class="card__header">
-            <h3 class="card__heading">Changeiscoming</h3>
-            <a href="" class="card__more">Visit</a>
+          <header class="grid card__header">
+            <h3 class="card__heading">CV</h3>
+            <a
+              href="https://k-ds.github.io/cv/"
+              target="_blank"
+              class="btn btn--accent card__more"
+              >Visit</a
+            >
           </header>
 
           <img src="images/cv.jpg" alt="cv website" class="card__preview" />
         </div>
+
+        <div class="portfolio__card">
+          <header class="grid card__header">
+            <h3 class="card__heading">Moshify</h3>
+            <a
+              href="https://k-ds.github.io/Moshify/"
+              target="_blank"
+              class="btn btn--accent card__more"
+              >Visit</a
+            >
+          </header>
+
+          <img
+            src="images/moshify.jpg"
+            alt="cv website"
+            class="card__preview"
+          />
+        </div>
+
+        <div class="portfolio__card">
+          <header class="grid card__header">
+            <h3 class="card__heading">Expense</h3>
+            <a
+              href="https://k-ds.github.io/xpence/home.html"
+              target="_blank"
+              class="btn btn--accent card__more"
+              >Visit</a
+            >
+          </header>
+
+          <img
+            src="images/expense.jpg"
+            alt="cv website"
+            class="card__preview"
+          />
+        </div>
       </div>
     </section>
+
     <script src="main.js"></script>
   </body>
 </html>
