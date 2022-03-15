@@ -18,7 +18,7 @@ html {
 body {
     color: var(--color-body);
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.2;
 }
 
@@ -299,7 +299,7 @@ a {
 /* ---------- Hero Section --------- */
 .section-hero {
     background: var(--color-secondary);
-
+    padding-top: 1rem;
 }
 
 .hero {
@@ -497,6 +497,7 @@ a {
 
 
 /* --------- portfolio section ------*/
+
 .portfolio__header {
     width: 100%;
     text-align: center;
@@ -516,7 +517,11 @@ a {
     box-shadow: 0 0 15px 5px #ccc;
 }
 
-@media screen and (min-width:769px) {}
+@media screen and (min-width:769px) {
+    .section-portfolio {
+        padding-bottom: 15rem;
+    }
+}
 
 .card__preview {
     width: 100%;
