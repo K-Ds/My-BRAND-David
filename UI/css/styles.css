@@ -657,6 +657,10 @@ a {
     gap: 2rem;
 }
 
+.skills__header {
+    margin-bottom: 5rem;
+}
+
 @media screen and (min-width:769px) {
     .skill__card {
         grid-template-columns: 50px 1fr;
@@ -669,5 +673,9 @@ a {
     .lang__list {
         gap: 1rem 2rem;
 
+    }
+
+    .skills__header {
+        margin-bottom: 7rem;
     }
 }
