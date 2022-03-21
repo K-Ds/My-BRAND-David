@@ -1,3 +1,12 @@
+:root {
+    --color-primary: #000;
+    --color-secondary: #F2F1F5;
+    --color-accent: #00C6AF;
+    --color-body: #F2F1F5;
+    --border-radius: 30px;
+    --border--color: #ccc;
+}
+
 .blogs__header {
     background-color: #F2F1F5;
     opacity: 0.8;
@@ -59,7 +68,8 @@
 /* -------- comment section ------- */
 .comments-section {
     border-top: 1px solid #c3c3c3;
-    background: #000;
+    background: #ccc;
+    color: #000;
 }
 
 
@@ -70,7 +80,7 @@
 }
 
 .comment__card {
-    background: #ccc;
+    background: var(--color-secondary);
     display: flex;
     flex-direction: column;
     border-radius: 20px;

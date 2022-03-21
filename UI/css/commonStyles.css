@@ -3,7 +3,7 @@
 :root {
     --color-primary: #000;
     --color-secondary: #F2F1F5;
-    --color-accent: #00C6AF;
+    --color-accent: rgb(0, 198, 175);
     --color-body: #F2F1F5;
     --border-radius: 30px;
     --border--color: #ccc;
@@ -254,7 +254,8 @@ a {
 
 @media screen and (min-width:769px) {
     .form__group {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 10rem 1fr;
     }
 
     .form__group>label {
