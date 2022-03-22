@@ -14,70 +14,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="sidebar">
+    <aside class="sidebar">
       <div class="logo-details">
-        <span class="logo_name">Admin Panel</span>
+        <span class="logo__name">Admin Panel</span>
       </div>
-      <ul class="nav-links">
+      <ul class="nav__links">
         <li>
           <a href="#dashboard" class="active">
             <i class="bx bx-grid-alt"></i>
-            <span class="links_name">Dashboard</span>
+            <span class="link__name">Dashboard</span>
           </a>
         </li>
         <li>
           <a href="#blogs">
             <i class="bx bx-box"></i>
-            <span class="links_name">Blogs</span>
+            <span class="link__name">Blogs</span>
           </a>
         </li>
 
         <li>
           <a href="#messages">
             <i class="bx bx-pie-chart-alt-2"></i>
-            <span class="links_name">Messages</span>
+            <span class="link__name">Messages</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class="bx bx-list-ul"></i>
-            <span class="links_name">Forms</span>
+            <span class="link__name">Forms</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class="bx bx-coin-stack"></i>
-            <span class="links_name">pages</span>
+            <span class="link__name">pages</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class="bx bx-cog"></i>
-            <span class="links_name">Setting</span>
+            <span class="link__name">Setting</span>
           </a>
         </li>
         <li class="log_out">
           <a href="blogs.html">
             <i class="bx bx-log-out"></i>
-            <span class="links_name">Log out</span>
+            <span class="link__name">Log out</span>
           </a>
         </li>
       </ul>
-    </div>
-    <section class="home-section">
+    </aside>
+
+    <main class="main">
       <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
+        <div class="nav__header">
+          <i class="bx bx-menu sidebar__btn"></i>
           <span class="dashboard">Dashboard</span>
         </div>
         <div class="profile-details">
-          <!--<img src="images/profile.jpg" alt="">-->
+          <img src="images/Profile picture.jpg" alt="" />
           <span class="admin_name">KARDAV</span>
           <i class="bx bx-chevron-down"></i>
         </div>
       </nav>
 
-      <div id="dashboard" class="home-content">
+      <section id="dashboard" class="dashboard-section">
         <div class="overview-boxes">
           <div class="box">
             <div class="right-side">
@@ -202,9 +203,9 @@
             </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div id="blogs" class="blog-section">
+      <div id="blogs" class="section--admin">
         <header class="main__header">
           <h1 class="main__heading">Blogs</h1>
           <a href="" class="btn btn--primary blog-add__btn">New Blog</a>
@@ -370,7 +371,7 @@
         </div>
       </div>
 
-      <div id="messages" class="blog-section">
+      <div id="messages" class="section--admin">
         <header class="main__header">
           <h1 class="main__heading">Messages</h1>
         </header>
@@ -424,7 +425,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </main>
 
     <script src="scripts/admin.js"></script>
   </body>

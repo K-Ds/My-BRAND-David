@@ -1,8 +1,8 @@
 let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".sidebarBtn");
-sidebarBtn.onclick = function () {
+let sidebar__btn = document.querySelector(".sidebar__btn");
+sidebar__btn.onclick = function () {
   sidebar.classList.toggle("active");
   if (sidebar.classList.contains("active")) {
-    sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-  } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    sidebar__btn.classList.replace("bx-menu", "bx-menu-alt-right");
+  } else sidebar__btn.classList.replace("bx-menu-alt-right", "bx-menu");
 };
