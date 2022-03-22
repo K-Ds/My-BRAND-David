@@ -39,6 +39,7 @@ body {
 .login__btn {
     border-radius: 15px;
     width: 100%;
+    display: block;
 }
 
 .login__footer {
@@ -51,6 +52,8 @@ body {
     margin-left: 1rem;
     text-decoration: underline;
 }
+
+
 
 @media screen and (min-width:426px) {
     .login__box {

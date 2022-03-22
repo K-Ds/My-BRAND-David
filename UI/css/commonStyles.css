@@ -326,9 +326,6 @@ a {
 .signin__btn {
     white-space: nowrap;
     height: fit-content;
-    position: absolute;
-    right: 2rem;
-    top: 2rem;
 }
 
 @media screen and (min-width: 769px) {
@@ -382,6 +379,7 @@ a {
     padding: 3rem 0;
     align-items: center;
     flex-direction: column-reverse;
+    gap: 1rem;
 }
 
 .copyright {
@@ -417,6 +415,7 @@ a {
 @media screen and (min-width:769px) {
     .footer {
         flex-direction: row;
+        gap: 5rem;
     }
 
     .socials {
