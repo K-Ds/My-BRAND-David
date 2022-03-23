@@ -340,7 +340,7 @@ nav .profile-details i {
 }
 
 .blogs-boxes .box .button a:hover {
-    background: #0d3073;
+    background: var(--color-accent);
 }
 
 /* Right box */

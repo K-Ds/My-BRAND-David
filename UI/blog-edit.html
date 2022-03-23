@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="CSS/commonStyles.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/blog-edit.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-details">
+        <span class="logo__name">Admin Panel</span>
+      </div>
+      <ul class="nav__links">
+        <li>
+          <a href="admin.html#dashboard" class="active">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link__name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin.html#blogs">
+            <i class="bx bx-box"></i>
+            <span class="link__name">Blogs</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="admin.html#messages">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="link__name">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-list-ul"></i>
+            <span class="link__name">Forms</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-coin-stack"></i>
+            <span class="link__name">pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="link__name">Setting</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="blogs.html">
+            <i class="bx bx-log-out"></i>
+            <span class="link__name">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <nav>
+        <div class="nav__header">
+          <i class="bx bx-menu sidebar__btn"></i>
+          <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="profile-details">
+          <img src="images/Profile picture.jpg" alt="" />
+          <span class="admin_name">KARDAV</span>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+      </nav>
+
+      <div class="edit-from">
+        <form action="" class="contact__form">
+          <div class="form__group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" />
+          </div>
+          <div class="form__group">
+            <label for="blog-img">Blog picture:</label>
+            <input type="file" name="blog-img" id="blog-img" />
+          </div>
+
+          <div class="form__group">
+            <label for="blog-body">BLog Body:</label>
+            <textarea name="blog-body" id="blog-body"></textarea>
+          </div>
+          <button class="btn btn--accent form__btn" type="save">Submit</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="scripts/admin.js"></script>
+  </body>
+</html>
