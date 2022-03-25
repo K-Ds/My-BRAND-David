@@ -1,0 +1,63 @@
+body {
+    background: rgb(252, 249, 255);
+    background: linear-gradient(90deg, rgba(0, 199, 176, 0.1) 50%, rgba(255, 255, 255, 1) 50%);
+    background-repeat: no-repeat;
+}
+
+.login__box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 50rem;
+    margin: 1rem;
+    margin-top: 3rem;
+    padding: 3rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 5px #ccc;
+    color: #000;
+    background: #fff;
+}
+
+.login__heading {
+    font-size: 3rem;
+}
+
+.login__form>form {
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.form__group {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.login__btn {
+    border-radius: 15px;
+    width: 100%;
+    display: block;
+}
+
+.login__footer {
+    border-top: 1px solid #ccc;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.create-account {
+    margin-left: 1rem;
+    text-decoration: underline;
+}
+
+
+
+@media screen and (min-width:426px) {
+    .login__box {
+        padding: 3rem;
+        margin: 5rem auto;
+    }
+}

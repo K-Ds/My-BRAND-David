@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="CSS/commonStyles.css" />
+    <link rel="stylesheet" href="css/blogsStyles.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-details">
+        <span class="logo__name">Admin Panel</span>
+      </div>
+      <ul class="nav__links">
+        <li>
+          <a href="#dashboard" class="active">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link__name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#blogs">
+            <i class="bx bx-box"></i>
+            <span class="link__name">Blogs</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#messages">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="link__name">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-list-ul"></i>
+            <span class="link__name">Forms</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-coin-stack"></i>
+            <span class="link__name">pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="link__name">Setting</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="blogs.html">
+            <i class="bx bx-log-out"></i>
+            <span class="link__name">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <nav>
+        <div class="nav__header">
+          <i class="bx bx-menu sidebar__btn"></i>
+          <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="profile-details">
+          <img src="images/Profile picture.jpg" alt="" />
+          <span class="admin_name">KARDAV</span>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+      </nav>
+
+      <section id="dashboard" class="dashboard-section">
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total Views</div>
+              <div class="number">402</div>
+            </div>
+            <i class="bx bx-movie cart"></i>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total blogs</div>
+              <div class="number">5</div>
+            </div>
+            <i class="bx bxl-blogger cart two"></i>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total likes</div>
+              <div class="number">12,876</div>
+            </div>
+            <i class="bx bxs-heart cart three"></i>
+          </div>
+        </div>
+
+        <div class="blogs-boxes">
+          <div class="recent-blogs box">
+            <div class="title">Recent Blogs</div>
+            <div class="blogs-details">
+              <ul class="details">
+                <li class="topic">Date</li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+                <li><a href="#">02 Jan 2021</a></li>
+              </ul>
+              <ul class="details">
+                <li class="topic">User</li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Title</li>
+
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">DLorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+                <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+              </ul>
+            </div>
+            <div class="button">
+              <a href="#blogs">See All</a>
+            </div>
+          </div>
+          <div class="top-blogs box">
+            <div class="title">Top viewed Blogs</div>
+            <ul class="top-blogs-details">
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="blog">Lorem ipsum dolor sit amet.</span>
+                </a>
+                <span class="view">1107</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div id="blogs" class="section--admin">
+        <header class="main__header">
+          <h1 class="main__heading">Blogs</h1>
+          <a href="blog-edit.html" class="btn btn--primary blog-add__btn">New Blog</a>
+        </header>
+
+        <div class="blog__list">
+          <div class="blog__card">
+            <img class="blog__img" src="images/computer.jpeg" alt="" />
+            <div class="blog__data">
+              <div class="blog__summary">
+                <h3 class="blog__title">3 ways to design better and faster</h3>
+                <p class="blog__description">
+                  Have you ever had the perfect experience, start to finish,
+                  during a design project? Probably not, but certainly you’ve
+                  had projects that felt right and others that went nowhere
+                </p>
+              </div>
+            </div>
+            <div class="blog__options">
+              <a href="blog-edit.html">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="bi:pencil-square"
+                  ></span>
+                </div>
+              </a>
+              <a href="">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="ant-design:delete-filled"
+                  ></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+         <div class="blog__card">
+            <img class="blog__img" src="images/computer.jpeg" alt="" />
+            <div class="blog__data">
+              <div class="blog__summary">
+                <h3 class="blog__title">3 ways to design better and faster</h3>
+                <p class="blog__description">
+                  Have you ever had the perfect experience, start to finish,
+                  during a design project? Probably not, but certainly you’ve
+                  had projects that felt right and others that went nowhere
+                </p>
+              </div>
+            </div>
+            <div class="blog__options">
+              <a href="blog-edit.html">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="bi:pencil-square"
+                  ></span>
+                </div>
+              </a>
+              <a href="">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="ant-design:delete-filled"
+                  ></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="blog__card">
+            <img class="blog__img" src="images/computer.jpeg" alt="" />
+            <div class="blog__data">
+              <div class="blog__summary">
+                <h3 class="blog__title">3 ways to design better and faster</h3>
+                <p class="blog__description">
+                  Have you ever had the perfect experience, start to finish,
+                  during a design project? Probably not, but certainly you’ve
+                  had projects that felt right and others that went nowhere
+                </p>
+              </div>
+            </div>
+            <div class="blog__options">
+              <a href="blog-edit.html">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="bi:pencil-square"
+                  ></span>
+                </div>
+              </a>
+              <a href="">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="ant-design:delete-filled"
+                  ></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="blog__card">
+            <img class="blog__img" src="images/computer.jpeg" alt="" />
+            <div class="blog__data">
+              <div class="blog__summary">
+                <h3 class="blog__title">3 ways to design better and faster</h3>
+                <p class="blog__description">
+                  Have you ever had the perfect experience, start to finish,
+                  during a design project? Probably not, but certainly you’ve
+                  had projects that felt right and others that went nowhere
+                </p>
+              </div>
+            </div>
+            <div class="blog__options">
+              <a href="blog-edit.html">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="bi:pencil-square"
+                  ></span>
+                </div>
+              </a>
+              <a href="">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="ant-design:delete-filled"
+                  ></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+         <div class="blog__card">
+            <img class="blog__img" src="images/computer.jpeg" alt="" />
+            <div class="blog__data">
+              <div class="blog__summary">
+                <h3 class="blog__title">3 ways to design better and faster</h3>
+                <p class="blog__description">
+                  Have you ever had the perfect experience, start to finish,
+                  during a design project? Probably not, but certainly you’ve
+                  had projects that felt right and others that went nowhere
+                </p>
+              </div>
+            </div>
+            <div class="blog__options">
+              <a href="blog-edit.html">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="bi:pencil-square"
+                  ></span>
+                </div>
+              </a>
+              <a href="">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="ant-design:delete-filled"
+                  ></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="blog__card">
+            <img class="blog__img" src="images/computer.jpeg" alt="" />
+            <div class="blog__data">
+              <div class="blog__summary">
+                <h3 class="blog__title">3 ways to design better and faster</h3>
+                <p class="blog__description">
+                  Have you ever had the perfect experience, start to finish,
+                  during a design project? Probably not, but certainly you’ve
+                  had projects that felt right and others that went nowhere
+                </p>
+              </div>
+            </div>
+            <div class="blog__options">
+              <a href="blog-edit.html">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="bi:pencil-square"
+                  ></span>
+                </div>
+              </a>
+              <a href="">
+                <div class="icon-container">
+                  <span
+                    class="iconify icon"
+                    data-icon="ant-design:delete-filled"
+                  ></span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+      <div id="messages" class="section--admin">
+        <header class="main__header">
+          <h1 class="main__heading">Messages</h1>
+        </header>
+
+        <div class="message__list">
+          <div class="media">
+            <div class="media__body">
+              <h3 class="media__title">Easy start & Managed Updates</h3>
+              <p class="media__mail">kadav@media.com</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                sapiente iusto veritatis autem? Aliquam aspernatur minima non in
+                consequuntur rerum!
+              </p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media__body">
+              <h3 class="media__title">Easy start & Managed Updates</h3>
+              <p class="media__mail">kadav@media.com</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                sapiente iusto veritatis autem? Aliquam aspernatur minima non in
+                consequuntur rerum!
+              </p>
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="media__body">
+              <h3 class="media__title">Easy start & Managed Updates</h3>
+              <p class="media__mail">kadav@media.com</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                sapiente iusto veritatis autem? Aliquam aspernatur minima non in
+                consequuntur rerum!
+              </p>
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="media__body">
+              <h3 class="media__title">Easy start & Managed Updates</h3>
+              <p class="media__mail">kadav@media.com</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                sapiente iusto veritatis autem? Aliquam aspernatur minima non in
+                consequuntur rerum!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="scripts/admin.js"></script>
+  </body>
+</html>

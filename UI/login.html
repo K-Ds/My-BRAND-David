@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/commonStyles.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <div class="login__box">
+        <div class="login__header">
+          <h2 class="login__heading">Welcome to Admin</h2>
+          <p>Login to continue</p>
+        </div>
+        <div class="login__form">
+          <form>
+            <div class="form__group">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                required
+              />
+            </div>
+
+            <div class="form__group">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <a href="admin.html" class="btn btn--accent login__btn">LOGIN</a>
+          </form>
+          <a href="#">Forgot password?</a>
+        </div>
+        <div class="login__footer">
+          <p>
+            New?<a class="create-account" href="register.html"
+              >CREATE ACCOUNT</a
+            >
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

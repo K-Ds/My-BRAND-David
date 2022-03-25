@@ -12,7 +12,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/commonStyles.css" />
+    <link rel="stylesheet" href="css/homeStyles.css" />
     <title>Home</title>
   </head>
   <body>
@@ -63,8 +64,10 @@
                 <a href="#portfolio-section">Portfolio</a>
               </li>
               <li class="nav__link"><a href="#skills-section">Skills</a></li>
-              <li class="nav__link"><a href="">Blog</a></li>
-              <li class="nav__link"><a href="">Contact</a></li>
+              <li class="nav__link">
+                <a target="__blank" href="blogs.html">Blog</a>
+              </li>
+              <li class="nav__link"><a href="#contact-section">Contact</a></li>
             </ul>
           </div>
         </nav>
@@ -325,6 +328,185 @@
       </div>
     </section>
 
-    <script src="main.js"></script>
+    <section class="container section section-blogs">
+      <header class="blogs__header">
+        <h2 class="blogs__heading">My Blogs</h2>
+      </header>
+      <div class="blogs__list">
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+
+        <div class="blog__card">
+          <div class="card__img">
+            <img src="images/computer.jpeg" alt="" />
+          </div>
+          <div class="card__data">
+            <h3 class="card__title">How to design</h3>
+            <p class="card__description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Veritatis unde placeat neque nulla, adipisci nisi?
+            </p>
+          </div>
+          <a class="btn btn--accent" href="http://" alt="">Read more</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-section" class="section section-contact">
+      <div class="container">
+        <header class="contact__header">
+          <h2 class="contact__heading">Contact me</h2>
+          <p class="contact__description">
+            If you just want to pass a message or want to hire me just write a
+            mesagge below
+          </p>
+        </header>
+        <form action="" class="contact__form">
+          <div class="form__group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="form__group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="form__group">
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject" />
+          </div>
+          <div class="form__group">
+            <label class="textarea__label" for="message">Message:</label>
+            <textarea name="message" id="message"></textarea>
+          </div>
+          <button class="btn btn--accent form__btn" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="login.html" class="btn btn--accent signin__btn">Sign In</a>
+      <div class="copyright">
+        <span
+          class="iconify icon copyright__icon"
+          data-icon="ant-design:copyright-circle-outlined"
+        ></span>
+        <span class="copyright__name">K.David</span>
+      </div>
+
+      <div class="socials">
+        <a href="mailto:kardav2019@gmail.com" class="social__link">
+          <span
+            class="iconify icon social__icon"
+            data-icon="ant-design:mail-filled"
+          ></span>
+        </a>
+
+        <a href="" class="social__link">
+          <span
+            class="iconify icon social__icon"
+            data-icon="akar-icons:twitter-fill"
+          ></span>
+        </a>
+
+        <a href="" class="social__link">
+          <span
+            class="iconify icon social__icon"
+            data-icon="akar-icons:github-fill"
+          ></span>
+        </a>
+
+        <a href="" class="social__link">
+          <span
+            class="iconify icon social__icon"
+            data-icon="akar-icons:linkedin-box-fill"
+          ></span>
+        </a>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
   </body>
 </html>
