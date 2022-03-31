@@ -448,6 +448,12 @@
 
 /* ----------- contact section -------- */
 .contact__form {
-    max-width: 50vw;
+    max-width: 90vw;
     margin: auto;
+}
+
+@media screen and (min-width:769px) {
+    .contact__form {
+        max-width: 50vw;
+    }
 }

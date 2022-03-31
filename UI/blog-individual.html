@@ -149,18 +149,16 @@
         </header>
         <div class="grid grid--1x2">
           <div class="comments">
-            <form action="" class="contact__form">
+            <form action="" class="contact__form" id="commentForm">
               <div class="form__group">
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" />
-              </div>
-              <div class="form__group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" />
+                <small></small>
               </div>
               <div class="form__group">
                 <label class="textarea__label" for="message">comment:</label>
                 <textarea name="message" id="message"></textarea>
+                <small></small>
               </div>
               <button class="btn btn--accent form__btn" type="submit">
                 comment
@@ -173,6 +171,7 @@
           <div class="comment__card">
             <img class="profile__img" src="images/computer.jpeg" alt="" />
             <div class="comment__data">
+              <span class="comment__user">Kar Dav</span>
               <p class="comment__message">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
                 laudantium illo possimus error? Illum, labore. Quod omnis
@@ -185,6 +184,7 @@
           <div class="comment__card">
             <img class="profile__img" src="images/computer.jpeg" alt="" />
             <div class="comment__data">
+              <span class="comment__user">Kar Dav</span>
               <p class="comment__message">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
                 laudantium illo possimus error? Illum, labore. Quod omnis
@@ -197,6 +197,7 @@
           <div class="comment__card">
             <img class="profile__img" src="images/computer.jpeg" alt="" />
             <div class="comment__data">
+              <span class="comment__user">Kar Dav</span>
               <p class="comment__message">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
                 laudantium illo possimus error? Illum, labore. Quod omnis
@@ -250,5 +251,6 @@
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script type="module" src="scripts/blog-individual.js"></script>
   </body>
 </html>

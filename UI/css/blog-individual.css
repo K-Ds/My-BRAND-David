@@ -89,6 +89,10 @@
     margin-bottom: 2rem;
 }
 
+.comment__user {
+    font-weight: 600;
+}
+
 .profile__img {
     width: 5rem;
     height: 5rem;
