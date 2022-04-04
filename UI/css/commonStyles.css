@@ -7,6 +7,8 @@
     --color-body: #F2F1F5;
     --border-radius: 30px;
     --border--color: #ccc;
+    --success-color: #00C851;
+    --error-color: #CC0000;
 }
 
 /* -------- TYPOGRAPHY ----------- */
@@ -421,4 +423,17 @@ a {
     .socials {
         margin-bottom: 0;
     }
+}
+
+.form__group .success {
+    border: 2px solid var(--success-color);
+}
+
+.form__group .error {
+    border: 2px solid var(--error-color);
+}
+
+
+small {
+    color: var(--error-color);
 }

@@ -21,7 +21,7 @@
           <p>Login to continue</p>
         </div>
         <div class="login__form">
-          <form>
+          <form id="loginForm">
             <div class="form__group">
               <label for="email">Email</label>
               <input
@@ -29,8 +29,8 @@
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                required
               />
+              <small></small>
             </div>
 
             <div class="form__group">
@@ -40,21 +40,19 @@
                 name="password"
                 type="password"
                 placeholder="Password"
-                required
               />
+              <small></small>
             </div>
-            <a href="admin.html" class="btn btn--accent login__btn">LOGIN</a>
+            <button class="btn btn--accent login__btn" type="submit">
+              LOGIN
+            </button>
+            <small id="invalid"></small>
           </form>
           <a href="#">Forgot password?</a>
         </div>
-        <div class="login__footer">
-          <p>
-            New?<a class="create-account" href="register.html"
-              >CREATE ACCOUNT</a
-            >
-          </p>
-        </div>
+        <div class="login__footer"></div>
       </div>
     </main>
+    <script type="module" src="scripts/login.js"></script>
   </body>
 </html>
