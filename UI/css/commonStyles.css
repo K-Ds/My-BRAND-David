@@ -442,4 +442,5 @@ a {
 
 small {
     color: var(--error-color);
+    grid-column: 2;
 }
