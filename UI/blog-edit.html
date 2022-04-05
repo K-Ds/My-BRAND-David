@@ -79,19 +79,22 @@
       </nav>
 
       <div class="edit-from">
-        <form action="" class="contact__form">
+        <form action="" class="contact__form" id="newBlogForm">
           <div class="form__group">
             <label for="title">Title:</label>
             <input type="text" name="title" id="title" />
+            <small></small>
           </div>
           <div class="form__group">
             <label for="blog-img">Blog picture:</label>
             <input type="file" name="blog-img" id="blog-img" />
+            <small></small>
           </div>
 
           <div class="form__group">
             <label for="blog-body">BLog Body:</label>
             <textarea name="blog-body" id="blog-body"></textarea>
+            <small></small>
           </div>
           <button class="btn btn--accent form__btn" type="save">Submit</button>
         </form>
@@ -99,5 +102,6 @@
     </main>
 
     <script src="scripts/admin.js"></script>
+    <script type="module" src="scripts/blogEdit.js"></script>
   </body>
 </html>
