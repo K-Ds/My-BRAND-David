@@ -326,7 +326,7 @@ a {
 }
 
 .signin__btn {
-    positon: absolute;
+    position: absolute;
     top:1.5rem;
     right: 1.5rem;
     white-space: nowrap;
@@ -370,7 +370,7 @@ a {
         width: auto;
     }
     .signin__btn {
-    positon: static;
+    position: static;
 }
 }
 
