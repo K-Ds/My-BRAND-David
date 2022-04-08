@@ -1,16 +1,14 @@
 import Post from "../models/Post";
 import Comment from "../models/Comment";
 
-const postServices = {};
-
 // Get All posts in DB
-postServices.getAll = async () => {
+export const getAll = async () => {
   const posts = await Post.find();
   return posts;
 };
 
 // Get a post by its ID
-postServices.getOnePost = async (postId) => {
+export const getOnePost = async (postId) => {
   const post = await Post.findOne({ _id: postId });
 
   if (!post || Object.keys(post).length === 0) {
@@ -22,14 +20,14 @@ postServices.getOnePost = async (postId) => {
 
 // Create a post in DB
 
-postServices.createPost = async (input) => {
+export const createPost = async (input) => {
   const post = new Post(input);
 
   return await post.save();
 };
 
 // update a blog
-postServices.updatePost = async (postId, input) => {
+export const updatePost = async (postId, input) => {
   const updatePost = await Post.findByIdAndUpdate(postId, input, {
     new: true,
   });
@@ -43,7 +41,7 @@ postServices.updatePost = async (postId, input) => {
 };
 
 // Delete Blog from DB
-postServices.deletePost = async (postId) => {
+export const deletePost = async (postId) => {
   const deletedPost = await Post.deleteOne({ _id: postId });
 
   if (deletedPost.deletedCount == 0) {
@@ -52,5 +50,3 @@ postServices.deletePost = async (postId) => {
   }
   return deletedPost;
 };
-
-export default postServices;
