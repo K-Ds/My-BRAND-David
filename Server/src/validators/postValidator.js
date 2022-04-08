@@ -1,4 +1,4 @@
-const Joi = require("joi");
+import Joi from "joi";
 
 function validationPost(input) {
   const schema = Joi.object({
@@ -18,4 +18,4 @@ function validationPost(input) {
   return result;
 }
 
-module.exports = validationPost;
+export default validationPost;

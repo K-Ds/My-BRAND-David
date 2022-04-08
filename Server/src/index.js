@@ -1,6 +1,6 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const posts = require("./routes/posts");
+import express from "express";
+import mongoose from "mongoose";
+import posts from "./routes/posts";
 
 const app = express();
 
