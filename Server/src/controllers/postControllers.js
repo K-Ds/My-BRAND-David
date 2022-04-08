@@ -6,7 +6,7 @@ const postController = {};
 // Get all posts
 postController.getAllPosts = async (req, res) => {
   const posts = await postServices.getAll();
-  res.json(posts);
+  return res.json(posts);
 };
 
 // Get a post by its ID
