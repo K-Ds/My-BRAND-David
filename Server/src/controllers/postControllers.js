@@ -6,7 +6,7 @@ const postController = {};
 // Get all posts
 postController.getAllPosts = async (req, res) => {
   const posts = await postServices.getAll();
-  res.send(posts);
+  res.json(posts);
 };
 
 // Get a post by its ID
@@ -14,7 +14,7 @@ postController.getPost = async (req, res) => {
   const postId = req.params.id;
   try {
     const post = await postServices.getOnePost(postId);
-    return res.send(post);
+    return res.json(post);
   } catch (e) {
     return res.status(404).json({ err: "Blog not found" });
   }
@@ -56,7 +56,7 @@ postController.updatePost = async (req, res) => {
     }
 
     const result = await postServices.updatePost(postId, input);
-    return res.send(result);
+    return res.json(result);
   } catch (err) {
     return res.status(500).json({ error: err });
   }
@@ -67,7 +67,7 @@ postController.deletePost = async (req, res) => {
   const postId = req.params.id;
   try {
     const result = await postServices.deletePost(postId);
-    return res.status(204).send();
+    return res.status(204).json({ message: "Post deleted" });
   } catch (err) {
     return res.status(404).send({ error: err.message });
   }
