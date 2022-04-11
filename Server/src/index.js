@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import posts from "./routes/posts";
+import queries from "./routes/queries";
 
 const app = express();
 

@@ -3,13 +3,13 @@ import Comment from "../models/Comment";
 
 // Get All posts in DB
 export const getAll = async () => {
-  const posts = await Post.find();
+  const posts = await Post.find().populate("comments");
   return posts;
 };
 
 // Get a post by its ID
 export const getOnePost = async (postId) => {
-  const post = await Post.findOne({ _id: postId });
+  const post = await Post.findOne({ _id: postId }).populate("comments");
 
   if (!post || Object.keys(post).length === 0) {
     throw new Error("Brog not found");
@@ -49,4 +49,41 @@ export const deletePost = async (postId) => {
     return;
   }
   return deletedPost;
+};
+
+// add comment
+export const addComment = async (postId, input) => {
+  const post = await Post.findById(postId);
+
+  if (!post || Object.keys(post).length === 0) {
+    throw new Error("Brog not found");
+    return;
+  }
+
+  const comment = new Comment(input);
+  await comment.save();
+
+  post.comments.push(comment["_id"]);
+
+  return await post.save();
+};
+
+export const likePost = async (postId) => {
+  // const post = await Post.findById(postId);
+
+  // if (!post || Object.keys(post).length === 0) {
+  //   throw new Error("Brog not found");
+  //   return;
+  // }
+
+  const post = await Post.updateOne(
+    {
+      _id: postId,
+    },
+    {
+      $inc: { likes: 1 },
+    }
+  );
+
+  return post;
 };

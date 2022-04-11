@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
   title: { type: String, required: true },
-  author: { type: String },
-  img: { type: String },
+  author: { type: String, required: true },
+  img: { type: String, required: true },
   date: { type: Date, default: Date.now },
   body: { type: String, required: true },
   likes: { type: Number, default: 0 },

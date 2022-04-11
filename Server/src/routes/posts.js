@@ -13,4 +13,8 @@ router.patch("/:id", postsControllers.updatePost);
 
 router.delete("/:id", postsControllers.deletePost);
 
+router.post("/:id/comment", postsControllers.addComment);
+
+router.post("/:id/like", postsControllers.likePost);
+
 export default router;

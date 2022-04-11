@@ -1,13 +1,13 @@
 import Joi from "joi";
 
-function validationPost(input) {
-  const schema = Joi.object({
-    title: Joi.string().required(),
-    author: Joi.string().required(),
-    img: Joi.string().required(),
-    body: Joi.string().required(),
-  });
+const schema = Joi.object({
+  title: Joi.string().required(),
+  author: Joi.string().required(),
+  img: Joi.string().required(),
+  body: Joi.string().required(),
+});
 
+function validationPost(input) {
   const result = schema.validate({
     title: input.title,
     author: input.author,
