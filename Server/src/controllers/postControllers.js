@@ -1,6 +1,7 @@
 import * as postServices from "../services/postServices";
 import postValidator from "../validators/postValidator";
 import commentValidator from "../validators/commentValidator";
+import cloudinary from "../cloudinary";
 
 // Get all posts
 export const getAllPosts = async (req, res) => {
@@ -21,10 +22,17 @@ export const getPost = async (req, res) => {
 
 // Create new post
 export const newPost = async (req, res) => {
+  let imgUrl = "";
+  try {
+    const cloudinaryResult = await cloudinary(req.body.img);
+    imgUrl = cloudinaryResult.url;
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
   const input = {
     title: req.body.title,
     author: req.body.author,
-    img: req.body.img,
+    img: imgUrl,
     body: req.body.body,
   };
 

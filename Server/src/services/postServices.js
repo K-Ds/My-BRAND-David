@@ -1,5 +1,5 @@
 import Post from "../models/Post";
-import Comment from "../models/Comment";
+import { Comment } from "../models/Comment";
 
 // Get All posts in DB
 export const getAll = async () => {
@@ -61,9 +61,8 @@ export const addComment = async (postId, input) => {
   }
 
   const comment = new Comment(input);
-  await comment.save();
 
-  post.comments.push(comment["_id"]);
+  post.comments.push(comment);
 
   return await post.save();
 };

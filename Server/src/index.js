@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import "dotenv/config";
 import posts from "./routes/posts";
 import queries from "./routes/queries";
 
