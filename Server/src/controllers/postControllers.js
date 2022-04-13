@@ -1,12 +1,15 @@
 import * as postServices from "../services/postServices";
-import postValidator from "../validators/postValidator";
 import commentValidator from "../validators/commentValidator";
 import cloudinary from "../cloudinary";
 
 // Get all posts
 export const getAllPosts = async (req, res) => {
-  const posts = await postServices.getAll();
-  return res.status(200).json(posts);
+  try {
+    const posts = await postServices.getAll();
+    return res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
 
 // Get a post by its ID
@@ -15,8 +18,8 @@ export const getPost = async (req, res) => {
   try {
     const post = await postServices.getOnePost(postId);
     return res.json(post).status(200);
-  } catch (e) {
-    return res.status(404).json({ err: "Blog not found" });
+  } catch (err) {
+    return res.status(400).json({ err: err.message });
   }
 };
 
@@ -27,45 +30,45 @@ export const newPost = async (req, res) => {
     const cloudinaryResult = await cloudinary(req.body.img);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err });
   }
-  const input = {
-    title: req.body.title,
-    author: req.body.author,
-    img: imgUrl,
-    body: req.body.body,
-  };
+  try {
+    const input = {
+      title: req.body.title,
+      author: req.body.author,
+      img: imgUrl,
+      body: req.body.body,
+    };
 
-  const validePost = postValidator(input);
-
-  if (validePost.error) {
-    return res.status(404).json(validePost.error.details[0].message);
+    const result = await postServices.createPost(input);
+    return res.status(201).json(result);
+  } catch (err) {
+    return res.status(400).json({ err: err.message });
   }
-  const result = await postServices.createPost(input);
-  return res.status(201).json(result);
 };
 
 // Update a post
 export const updatePost = async (req, res) => {
+  let imgUrl = "";
+  try {
+    const cloudinaryResult = await cloudinary(req.body.img);
+    imgUrl = cloudinaryResult.url;
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
   try {
     const postId = req.params.id;
     const input = {
       title: req.body.title,
       author: req.body.author,
-      img: req.body.img,
+      img: imgUrl,
       body: req.body.body,
     };
-
-    const validePost = postValidator(input);
-
-    if (validePost.error) {
-      return res.status(404).json(validePost.error.details[0].message);
-    }
 
     const result = await postServices.updatePost(postId, input);
     return res.status(200).json(result);
   } catch (err) {
-    return res.status(500).json({ error: err });
+    return res.status(500).json({ error: err.message });
   }
 };
 
@@ -85,12 +88,6 @@ export const addComment = async (req, res) => {
   const input = { user: req.body.user, content: req.body.content };
 
   const postId = req.params.id;
-
-  const validComment = commentValidator(input);
-
-  if (validComment.error) {
-    return res.status(404).json(validComment.error.details[0].message);
-  }
 
   try {
     const result = await postServices.addComment(postId, input);

@@ -5,13 +5,16 @@ const schema = Joi.object({
   user: Joi.string(),
 });
 
-function validationComment(input) {
-  const result = schema.validate({
-    user: input.user,
-    content: input.content,
+const validationComment = (req, res, next) => {
+  const valideComment = schema.validate({
+    user: req.body.user,
+    content: req.body.content,
   });
 
-  return result;
-}
+  if (valideComment.error) {
+    return res.status(400).json({ error: validePost.error.details[0].message });
+  }
+  next();
+};
 
 export default validationComment;

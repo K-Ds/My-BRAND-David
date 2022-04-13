@@ -7,15 +7,18 @@ const schema = Joi.object({
   body: Joi.string().required(),
 });
 
-function validationPost(input) {
-  const result = schema.validate({
-    title: input.title,
-    author: input.author,
-    img: input.img,
-    body: input.body,
+const validationPost = (req, res, next) => {
+  const validePost = schema.validate({
+    title: req.body.title,
+    author: req.body.author,
+    img: req.body.img,
+    body: req.body.body,
   });
 
-  return result;
-}
+  if (validePost.error) {
+    return res.status(400).json({ error: validePost.error.details[0].message });
+  }
+  next();
+};
 
 export default validationPost;

@@ -7,14 +7,9 @@ Cloudinary.config({
 });
 
 const upload = async (image) => {
-  const result = Cloudinary.uploader
-    .upload(image)
-    .then((result) => {
-      return result;
-    })
-    .catch((error) => {
-      throw new Error(error);
-    });
+  const result = Cloudinary.uploader.upload(image).then((result) => {
+    return result;
+  });
   return result;
 };
 
