@@ -19,7 +19,7 @@ const userSchema = new Schema({
 userSchema.methods.generateToken = function () {
   const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
-    "jwtPrivateKey"
+    process.env.JWT_API_SECRET
   );
   return token;
 };

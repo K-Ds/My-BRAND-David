@@ -30,7 +30,7 @@ export const newPost = async (req, res) => {
     const cloudinaryResult = await cloudinary(req.body.img);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
-    return res.status(500).json({ error: err });
+    return res.status(500).json({ error: err.message });
   }
   try {
     const input = {
@@ -54,7 +54,7 @@ export const updatePost = async (req, res) => {
     const cloudinaryResult = await cloudinary(req.body.img);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
-    return res.status(500).json({ error: err });
+    return res.status(500).json({ error: err.message });
   }
   try {
     const postId = req.params.id;
