@@ -174,15 +174,6 @@ describe("/api/posts", () => {
       expect(res.status).to.be.eql(403);
     });
 
-    it("should return 404, if invalid ID is porvided", async () => {
-      const res = await request(server)
-        .post("/api/posts")
-        .send(input)
-        .set("x-auth-token", 1);
-
-      expect(res.status).to.be.eql(404);
-    });
-
     it("should return 400, if the user does not provide all the requried parameters", async () => {
       const userLocal = new User({
         name: "nonadmin",
