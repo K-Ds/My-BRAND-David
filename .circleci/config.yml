@@ -4,7 +4,6 @@ orbs:
 
 jobs:
   build_and_test:
-    working_directory: ~/Server
     docker:
       - image: cimg/node:17.2.0
     steps:
