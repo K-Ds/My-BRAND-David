@@ -9,16 +9,17 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - checkout
+      - node/install-npm
       - node/install-packages:
           app-dir: ~/project/Server
           cache-version: v1
           cache-path: node_modules
           pkg-manager: npm
       - run:
-          command: npm test
+          command: npm run test
           name: Run tests
       - run:
-          command: npm build
+          command: npm run build
           name: Build app
       - persist_to_workspace:
           root: ~/project/Server
