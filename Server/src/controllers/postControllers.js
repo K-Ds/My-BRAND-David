@@ -1,5 +1,4 @@
 import * as postServices from "../services/postServices";
-import commentValidator from "../validators/commentValidator";
 import cloudinary from "../cloudinary";
 
 // Get all posts
@@ -43,7 +42,7 @@ export const newPost = async (req, res) => {
     const result = await postServices.createPost(input);
     return res.status(201).json(result);
   } catch (err) {
-    return res.status(400).json({ err: err.message });
+    return res.status(500).json({ err: err.message });
   }
 };
 

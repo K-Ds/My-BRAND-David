@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
+import config from "config";
 
 // ROutes
 import posts from "./routes/posts";
@@ -11,9 +12,9 @@ import auth from "./routes/auth";
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost/PortfolioDB")
+  .connect(config.get("db"))
   .then(() => {
-    console.log("Database Connected");
+    console.log(`Connected to ${config.get("db")}`);
   })
   .catch(() => {
     console.log("database unable to connect");
@@ -30,6 +31,8 @@ app.use("/api/queries", queries);
 app.use("/api/users", users);
 app.use("/api/auth", auth);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
+module.exports = server;
