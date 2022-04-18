@@ -11,6 +11,8 @@ jobs:
       - checkout
       - node/install-packages:
           app-dir: ~/project/Server
+          cache-version: v1
+          cache-path: node_modules
           pkg-manager: npm
       - run:
           command: npm test
@@ -19,7 +21,7 @@ jobs:
           command: npm build
           name: Build app
       - persist_to_workspace:
-          root: ~/project
+          root: ~/project/Server
           paths:
             - .
 
