@@ -1,8 +1,8 @@
 import * as Cloudinary from "cloudinary";
 
 Cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
+  cloud_name: "k-ds",
+  api_key: 823114164825559,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
