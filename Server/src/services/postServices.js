@@ -28,9 +28,7 @@ export const createPost = async (input) => {
 
 // update a blog
 export const updatePost = async (postId, input) => {
-  const updatePost = await Post.findByIdAndUpdate(postId, input, {
-    new: true,
-  });
+  const updatePost = await Post.findByIdAndUpdate(postId, input);
 
   if (!updatePost) {
     throw new Error("Brog not found");

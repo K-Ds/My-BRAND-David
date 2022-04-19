@@ -18,7 +18,7 @@ export const getPost = async (req, res) => {
     const post = await postServices.getOnePost(postId);
     return res.json(post).status(200);
   } catch (err) {
-    return res.status(400).json({ err: err.message });
+    return res.status(404).json({ err: err.message });
   }
 };
 
@@ -29,7 +29,7 @@ export const newPost = async (req, res) => {
     const cloudinaryResult = await cloudinary(req.body.img);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
-    return res.status(501).json({ error: err.message });
+    return res.status(503).json({ error: err.message });
   }
   try {
     const input = {
@@ -53,7 +53,7 @@ export const updatePost = async (req, res) => {
     const cloudinaryResult = await cloudinary(req.body.img);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    return res.status(503).json({ error: err.message });
   }
   try {
     const postId = req.params.id;
@@ -65,9 +65,9 @@ export const updatePost = async (req, res) => {
     };
 
     const result = await postServices.updatePost(postId, input);
-    return res.status(200).json(result);
+    return res.status(201).json(result);
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    return res.status(404).json({ error: err.message });
   }
 };
 
