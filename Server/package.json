@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "set NODE_ENV=test&&npx mocha src/test/**/*.js --require @babel/register",
+    "test": "set NODE_ENV=test&&npx mocha src/test/**/*.js --exit --require @babel/register --timeout 10000",
     "start": "npm run build-babel && node ./build/index.js",
     "start:dev": "set NODE_ENV=development&&nodemon --exec npx babel-node ./src/index.js",
     "build": "babel src -d ./build/"
@@ -25,7 +25,9 @@
     "jsonwebtoken": "^8.5.1",
     "lowdash": "^1.2.0",
     "mongoose": "^6.2.10",
-    "swagger": "^0.7.5"
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
