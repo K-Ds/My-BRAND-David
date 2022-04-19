@@ -12,6 +12,9 @@ jobs:
       - checkout:
           path: ~/project
       - node/install-npm
+      - run:
+          name: "echo environment variables from org-global context"
+          command: echo $CLOUDINARY_API_SECRET
       - node/install-packages:
           app-dir: ~/project/Server
           cache-version: v1
