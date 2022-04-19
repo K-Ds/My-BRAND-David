@@ -71,7 +71,7 @@ describe("/api/posts", () => {
       expect(res.status).to.be.eql(404);
     });
 
-    it("should get one post if id valid", async () => {
+    it("should return 200 and get one post if id valid", async () => {
       const post = new Post(postUnit("Posst 1"));
 
       await post.save();
