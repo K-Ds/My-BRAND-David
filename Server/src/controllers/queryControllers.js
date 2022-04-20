@@ -26,9 +26,12 @@ export const newQuery = async (req, res) => {
     subject: req.body.subject,
     body: req.body.body,
   };
-
-  const result = await queryServices.createQuery(input);
-  return res.status(200).json(result);
+  try {
+    const result = await queryServices.createQuery(input);
+    return res.status(201).json(result);
+  } catch (err) {
+    return res.status(500).send({ error: err.message });
+  }
 };
 
 // Delete query from DB
