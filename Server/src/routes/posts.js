@@ -275,7 +275,8 @@ router.post(
  *        schema:
  *          type: string
  *
- *      - in: header
+ *      - name: x-auth-token
+ *        in: header
  *        description: The user jwt token
  *        schema:
  *          type: object

@@ -6,12 +6,12 @@ Cloudinary.config({
   api_secret: "cTaAd4Nmhx9HDZQkx6OsngbpT5M",
 });
 
-const upload = async (image) => {
-  const result = Cloudinary.uploader.upload(image).then((result) => {
-    return result;
-  });
-  return result;
-};
+// const upload = async (image) => {
+//   const result = Cloudinary.uploader.upload(image).then((result) => {
+//     return result;
+//   });
+//   return result;
+// };
 
 const upload_test = async (image) => {
   return {
@@ -19,10 +19,12 @@ const upload_test = async (image) => {
   };
 };
 
-let default_export = upload;
+// let default_export = upload;
 
-if (process.env.NODE_ENV === "test") {
-  default_export = upload_test;
-}
+// if (process.env.NODE_ENV == "test") {
+//   default_export = upload_test;
+// }
 
-export default default_export;
+// export default default_export;
+
+export default upload_test;
