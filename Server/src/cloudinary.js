@@ -3,7 +3,7 @@ import * as Cloudinary from "cloudinary";
 Cloudinary.config({
   cloud_name: "k-ds",
   api_key: 823114164825559,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret: cTaAd4Nmhx9HDZQkx6OsngbpT5M,
 });
 
 const upload = async (image) => {
