@@ -26,16 +26,16 @@ const router = express.Router();
  *          properties:
  *           name:
  *             type: string
- *             default: Jane Doe
+ *             example: Jane Doe
  *           email:
  *             type: string
- *             default: janedoe@gmail.com
+ *             example: janedoe@gmail.com
  *           password:
  *             type: string
- *             default: password@123
+ *             example: password@123
  *           isAdmin:
  *             type: boolean
- *             default: false
+ *             example: false
  *
  *    responses:
  *      - '200':

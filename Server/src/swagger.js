@@ -11,8 +11,8 @@ const swaggerOptions = {
       contact: {
         name: "Kar David",
       },
-      servers: ["http://localhost:5000"],
     },
+    servers: ["http://localhost:5000"],
   },
   apis: [`${__dirname}/routes/*.js`],
 };
@@ -21,7 +21,7 @@ const swaggerSpec = swaggerJsDoc(swaggerOptions);
 
 const swaggerDocs = (app, port) => {
   // swagger page
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
 export default swaggerDocs;

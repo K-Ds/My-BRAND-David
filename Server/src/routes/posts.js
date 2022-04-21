@@ -17,9 +17,9 @@ const router = express.Router();
  *    tags:
  *      - Posts
  *    responses:
- *      - '200':
+ *      200:
  *        description: A successful response of all posts
- *      - '500':
+ *      500:
  *        description: Server Error
  */
 router.get("/", postsControllers.getAllPosts);
@@ -31,21 +31,27 @@ router.get("/", postsControllers.getAllPosts);
  *    summary: Returns a post by ID.
  *    tags:
  *      - Posts
- *
  *    parameters:
- *       - name: postId
- *         in: path
- *         required: true
- *         description: The ID of the post to return.
- *         schema:
- *           type: integer
- *           format: int64
- *           minimum: 1
+ *      - in: path
+ *        name: postId
+ *        required: true
+ *        description: The ID of the post to return.
+ *        schema:
+ *          type: string
  *    responses:
- *      - '200':
+ *      200:
  *        description: A successful response
- *      - '404':
- *        description: Invalid ID
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *
+ *      400:
+ *        description: Invalid ID.
+ *      404:
+ *        description: Blog not found.
+ *      500:
+ *        description: Server Error.
  */
 router.get("/:id", object_IdValidator, postsControllers.getPost);
 
@@ -59,43 +65,43 @@ router.get("/:id", object_IdValidator, postsControllers.getPost);
  *    consumes:
  *      - application/json
  *    parameters:
+ *      - in: header
+ *        name: x-auth-token
+ *        description: The user jwt token
+ *        schema:
+ *          type: string
+ *
  *      - in: body
+ *        name: body
  *        description: The post to create.
+ *        required: true
  *        schema:
  *          type: object
- *          required:
- *            - title
- *            - author
- *            - img
- *            - body
  *          properties:
  *           title:
  *             type: string
- *             default: Title 1
+ *             example: Title 1
  *           author:
  *             type: string
- *             default: Jane Doe
+ *             example: Jane Doe
  *           img:
  *             type: string
- *             default: ./images/1.jpg
+ *             example: ./images/1.jpg
  *           body:
  *             type: string
- *             default: Lorem ipsum
- *      - in: header
- *        description: The user jwt token
- *        schema:
- *          type: object
- *          required:
- *            - x-auth-token
- *          properties:
- *           x-auth-token:
- *             type: string
+ *             example: Lorem ipsum
  *
  *    responses:
- *      - '200':
- *        description: A successful response
- *      - '401':
+ *      201:
+ *        description: A successful post
+ *      401:
  *        description: Not logged in
+ *      403:
+ *        description: Not an Admin.
+ *      400:
+ *        description: some required parameters not passed.
+ *      503:
+ *        description: Service not available.
  */
 router.post("/", [auth, admin, postValidator], postsControllers.newPost);
 
@@ -117,6 +123,7 @@ router.post("/", [auth, admin, postValidator], postsControllers.newPost);
  *          type: string
  *
  *      - in: body
+ *        name: body
  *        description: The post to create.
  *        schema:
  *          type: object
@@ -128,17 +135,19 @@ router.post("/", [auth, admin, postValidator], postsControllers.newPost);
  *          properties:
  *           title:
  *             type: string
- *             default: Title 1
+ *             example: Title 1
  *           author:
  *             type: string
- *             default: Jane Doe
+ *             example: Jane Doe
  *           img:
  *             type: string
- *             default: ./images/1.jpg
+ *             example: ./images/1.jpg
  *           body:
  *             type: string
- *             default: Lorem ipsum
+ *             example: Lorem ipsum
+ *
  *      - in: header
+ *        name: x-auth-token
  *        description: The user jwt token
  *        schema:
  *          type: object
@@ -149,12 +158,18 @@ router.post("/", [auth, admin, postValidator], postsControllers.newPost);
  *             type: string
  *
  *    responses:
- *      - '200':
- *        description: A successful response
- *      - '401':
+ *      201:
+ *        description: A successful post
+ *      401:
  *        description: Not logged in
- *      - '403':
- *        description: Not Admin
+ *      403:
+ *        description: Not an Admin.
+ *      400:
+ *        description: some required parameters not passed.
+ *      404:
+ *        description: Post not found.
+ *      503:
+ *        description: Service not available.
  */
 router.put(
   "/:id",
@@ -180,6 +195,7 @@ router.put(
  *          type: string
  *
  *      - in: header
+ *        name: x-auth-token
  *        description: The user jwt token
  *        schema:
  *          type: object
@@ -190,12 +206,17 @@ router.put(
  *             type: string
  *
  *    responses:
- *      - '200':
- *        description: A successful response
- *      - '401':
+ *      204:
+ *        description: A successful delete of the post.
+ *      401:
  *        description: Not logged in
- *      - '403':
+ *      403:
  *        description: Not Admin
+ *      400:
+ *        description: Invalid ID.
+ *      404:
+ *        description: Blog not found.
+ *
  */
 router.delete(
   "/:id",
@@ -222,6 +243,7 @@ router.delete(
  *          type: string
  *
  *      - in: body
+ *        name: body
  *        description: The comment to post.
  *        schema:
  *          type: object
@@ -231,12 +253,13 @@ router.delete(
  *          properties:
  *           content:
  *             type: string
- *             default: Very Good Job.
+ *             example: Very Good Job.
  *           user:
  *             type: string
- *             default: Jane Doe
+ *             example: Jane Doe
  *
  *      - in: header
+ *        name: x-auth-token
  *        description: The user jwt token
  *        schema:
  *          type: object
@@ -247,9 +270,9 @@ router.delete(
  *             type: string
  *
  *    responses:
- *      - '200':
+ *      200:
  *        description: A successful response
- *      - '401':
+ *      401:
  *        description: Not logged in
  */
 router.post(
@@ -275,21 +298,11 @@ router.post(
  *        schema:
  *          type: string
  *
- *      - name: x-auth-token
- *        in: header
- *        description: The user jwt token
- *        schema:
- *          type: object
- *          required:
- *            - x-auth-token
- *          properties:
- *           x-auth-token:
- *             type: string
  *
  *    responses:
- *      - '200':
+ *      204:
  *        description: A successful response
- *      - '401':
+ *      401:
  *        description: Not logged in
  */
 router.post("/:id/like", postsControllers.likePost);
