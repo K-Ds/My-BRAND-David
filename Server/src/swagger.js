@@ -12,7 +12,7 @@ const swaggerOptions = {
         name: "Kar David",
       },
     },
-    servers: ["http://localhost:5000"],
+    servers: [`http://localhost:${process.env.NODE_ENV}`],
   },
   apis: [`${__dirname}/routes/*.js`],
 };
