@@ -1,8 +1,8 @@
 import express from "express";
-import mongoose from "mongoose";
 import "dotenv/config";
 import config from "config";
 import bodyParser from "body-parser";
+import mongoose from "./db/mongoose";
 
 // Routes
 import posts from "./routes/posts";
@@ -12,16 +12,6 @@ import auth from "./routes/auth";
 import swaggerDocs from "./swagger";
 
 const app = express();
-
-mongoose
-  .connect(config.get("db"))
-  .then(() => {
-    console.log(`Connected to ${config.get("db")}`);
-  })
-  .catch(() => {
-    console.log("database unable to connect");
-  });
-
 const port = process.env.PORT || 5000;
 
 // Start Server
