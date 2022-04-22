@@ -53,7 +53,7 @@ export const updatePost = async (req, res) => {
     const cloudinaryResult = await cloudinary(req.body.img);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
-    return res.status(503).json({ error: err.message });
+    return res.status(503).send(err);
   }
   try {
     const postId = req.params.id;

@@ -3,7 +3,6 @@ import request from "supertest";
 import Query from "../../../models/Query";
 import mongoose from "mongoose";
 import User from "../../../models/User";
-import e, { query } from "express";
 
 const expect = chai.expect;
 

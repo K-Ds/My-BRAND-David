@@ -9,6 +9,6 @@ export const checkAuth = async (req, res) => {
     const token = await authServices.checkAuth(input);
     return res.status(201).json({ token: token });
   } catch (err) {
-    return res.status(400).json({ error: err.message });
+    return res.status(401).json({ error: err.message });
   }
 };
