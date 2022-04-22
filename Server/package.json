@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "set NODE_ENV=test&&npx mocha src/test/**/*.js --exit --require @babel/register --timeout 10000",
+    "test": "set NODE_ENV=test&&npx mocha src/test/**/*.js --exit --require @babel/register --timeout 50000",
     "start": "npm run build && node ./build/index.js",
     "start:dev": "set NODE_ENV=development&&nodemon --exec npx babel-node ./src/index.js",
     "build-babel": "babel -d ./build ./src -s",
