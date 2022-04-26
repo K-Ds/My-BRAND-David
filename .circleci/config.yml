@@ -25,6 +25,9 @@ jobs:
           name: code-coverage
           command: npm run coverage
       - coveralls/upload
+      - run:
+          name: build
+          command: npm run build
       - persist_to_workspace:
           root: ~/project/Server
           paths:
