@@ -10,6 +10,6 @@ commentForm.addEventListener("submit", (e) => {
   let messageValid = validator.nameVerification(commentMessage);
 
   if (nameValid && messageValid) {
-    alert("Form submitted");
+    alert("Form submit");
   }
 });

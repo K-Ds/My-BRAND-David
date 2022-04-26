@@ -1,16 +1,36 @@
-import * as Cloudinary from "cloudinary";
+import { v2 as cloudinary } from "cloudinary";
 
-Cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
 });
 
 const upload = async (image) => {
-  const result = Cloudinary.uploader.upload(image).then((result) => {
-    return result;
-  });
+  const result = cloudinary.uploader
+    .upload(image)
+    .then((result) => {
+      return result;
+    })
+    .catch((err) => {
+      throw err;
+    });
   return result;
 };
 
-export default upload;
+const upload_test = async (image) => {
+  return {
+    url: "https://res.cloudinary.com/k-ds/image/upload/v1649666870/sample.jpg",
+  };
+};
+
+let default_export = upload;
+
+if (process.env.NODE_ENV == "test") {
+  default_export = upload_test;
+}
+
+export default default_export;
+
+// export default upload;
