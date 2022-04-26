@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@4.7.0
+  coveralls: coveralls/coveralls@1.0.5
 
 jobs:
   build_and_test:
@@ -12,9 +13,6 @@ jobs:
       - checkout:
           path: ~/project
       - node/install-npm
-      - run:
-          name: "echo environment variables from org-global context"
-          command: echo $CLOUDINARY_API_SECRET
       - node/install-packages:
           app-dir: ~/project/Server
           cache-version: v1
@@ -23,6 +21,10 @@ jobs:
       - run:
           command: npm run test
           name: Run tests
+      - run:
+          name: code-coverage
+          command: npm run coverage
+      - coveralls/upload
       - run:
           command: npm run build
           name: Build app
@@ -37,3 +39,8 @@ workflows:
           context:
             - cloudinary
             - JWT_TOKEN
+            - DB
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=${process.env.COVERALLS_REPO_TOKEN}
