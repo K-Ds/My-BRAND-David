@@ -9,9 +9,10 @@
     "start:dev": "set NODE_ENV=development&&nodemon --exec npx babel-node ./src/index.js",
     "build-babel": "babel -d ./build ./src -s",
     "clean": "rm -rf build && mkdir build",
-    "build": "npm run clean && npm run build-babel"
+    "build": "npm run clean && npm run build-babel",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "coverage": "nyc report --reporter=text-lcov | coveralls",
+
   "engines": {
     "node": "16.13.0"
   },
