@@ -23,7 +23,8 @@ describe("auth middleware", () => {
       .send({
         title: "Post 1",
         author: "Admin",
-        img: "C:\\Users\\karda\\OneDrive\\Desktop\\ATLP\\My-BRAND-David\\UI\\images\\computer.jpeg",
+        image:
+          "C:\\Users\\karda\\OneDrive\\Desktop\\ATLP\\My-BRAND-David\\UI\\images\\computer.jpeg",
         body: "Lorem ipsum dolor sit amet",
       })
       .set("x-auth-token", token);

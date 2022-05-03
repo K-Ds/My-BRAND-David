@@ -13,7 +13,8 @@ describe("/api/posts", () => {
     return {
       title: title,
       author: "Admin",
-      img: "C:\\Users\\karda\\OneDrive\\Desktop\\ATLP\\My-BRAND-David\\UI\\images\\computer.jpeg",
+      image:
+        "C:\\Users\\karda\\OneDrive\\Desktop\\ATLP\\My-BRAND-David\\UI\\images\\computer.jpeg",
       body: "Lorem ipsum dolor sit amet",
     };
   };

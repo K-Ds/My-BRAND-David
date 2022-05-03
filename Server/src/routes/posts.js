@@ -4,6 +4,7 @@ import admin from "../middleware/admin";
 import postValidator from "../validators/postValidator";
 import commentValidator from "../validators/commentValidator";
 import object_IdValidator from "../validators/object_IdValidator";
+import multerUploads from "../middleware/multer";
 
 import * as postsControllers from "../controllers/postControllers";
 
@@ -63,7 +64,7 @@ router.get("/:id", object_IdValidator, postsControllers.getPost);
  *    tags:
  *      - Posts
  *    consumes:
- *      - application/json
+ *      - multipart/form-data
  *    parameters:
  *      - in: header
  *        name: x-auth-token
@@ -71,25 +72,32 @@ router.get("/:id", object_IdValidator, postsControllers.getPost);
  *        schema:
  *          type: string
  *
- *      - in: body
- *        name: body
- *        description: The post to create.
+ *      - in: formData
+ *        name: title
+ *        description: The post Title.
+ *        exmaple: Example title
  *        required: true
- *        schema:
- *          type: object
- *          properties:
- *           title:
- *             type: string
- *             example: Title 1
- *           author:
- *             type: string
- *             example: Jane Doe
- *           img:
- *             type: string
- *             example: ./images/1.jpg
- *           body:
- *             type: string
- *             example: Lorem ipsum
+ *        type: string
+ *
+ *      - in: formData
+ *        name: author
+ *        description: The author of the post.
+ *        exmaple: John Doe
+ *        required: true
+ *        type: string
+ *
+ *      - in: formData
+ *        name: image
+ *        description: The image of post.
+ *        required: true
+ *        type: file
+ *
+ *      - in: formData
+ *        name: body
+ *        description: The body of post.
+ *        exmaple: lorem ipsum dolor
+ *        required: true
+ *        type: string
  *
  *    responses:
  *      201:
@@ -103,7 +111,11 @@ router.get("/:id", object_IdValidator, postsControllers.getPost);
  *      503:
  *        description: Service not available.
  */
-router.post("/", [auth, admin, postValidator], postsControllers.newPost);
+router.post(
+  "/",
+  [auth, admin, multerUploads, postValidator],
+  postsControllers.newPost
+);
 
 /**
  * @openapi
@@ -113,7 +125,7 @@ router.post("/", [auth, admin, postValidator], postsControllers.newPost);
  *    tags:
  *      - Posts
  *    consumes:
- *      - application/json
+ *      - multipart/form-data
  *    parameters:
  *      - name: postId
  *        in: path
@@ -122,29 +134,32 @@ router.post("/", [auth, admin, postValidator], postsControllers.newPost);
  *        schema:
  *          type: string
  *
- *      - in: body
+ *      - in: formData
+ *        name: title
+ *        description: The title of the post
+ *        type: string
+ *        required: true
+ *        example: Title example
+ *
+ *      - in: formData
+ *        name: author
+ *        description: The author of the post
+ *        type: string
+ *        required: true
+ *        example: Jane Doe
+ *
+ *      - in: formData
+ *        name: image
+ *        description: The Image of the post
+ *        type: file
+ *        required: true
+ *
+ *      - in: formData
  *        name: body
- *        description: The post to create.
- *        schema:
- *          type: object
- *          required:
- *            - title
- *            - author
- *            - img
- *            - body
- *          properties:
- *           title:
- *             type: string
- *             example: Title 1
- *           author:
- *             type: string
- *             example: Jane Doe
- *           img:
- *             type: string
- *             example: ./images/1.jpg
- *           body:
- *             type: string
- *             example: Lorem ipsum
+ *        description: The body of the post
+ *        type: string
+ *        required: true
+ *        example: lorem ipsum dolor sit amet
  *
  *      - in: header
  *        name: x-auth-token
@@ -173,7 +188,7 @@ router.post("/", [auth, admin, postValidator], postsControllers.newPost);
  */
 router.put(
   "/:id",
-  [auth, admin, object_IdValidator, postValidator],
+  [auth, admin, object_IdValidator, multerUploads, postValidator],
   postsControllers.updatePost
 );
 

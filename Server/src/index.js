@@ -3,6 +3,7 @@ import "dotenv/config";
 import config from "config";
 import bodyParser from "body-parser";
 import mongoose from "./db/mongoose";
+import cors from "cors";
 
 // Routes
 import posts from "./routes/posts";
@@ -15,7 +16,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Start Server
-
 app.use(express.json());
 app.use(bodyParser.json());
 

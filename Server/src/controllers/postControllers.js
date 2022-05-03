@@ -1,5 +1,6 @@
 import * as postServices from "../services/postServices";
 import cloudinary from "../cloudinary";
+import { dataUri } from "../middleware/multer";
 
 // Get all posts
 export const getAllPosts = async (req, res) => {
@@ -26,7 +27,8 @@ export const getPost = async (req, res) => {
 export const newPost = async (req, res) => {
   let imgUrl = "";
   try {
-    const cloudinaryResult = await cloudinary(req.body.img);
+    const file = dataUri(req).content;
+    const cloudinaryResult = await cloudinary(file);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
     return res.status(503).json({ error: err.message });
@@ -35,7 +37,7 @@ export const newPost = async (req, res) => {
     const input = {
       title: req.body.title,
       author: req.body.author,
-      img: imgUrl,
+      image: imgUrl,
       body: req.body.body,
     };
 
@@ -50,7 +52,8 @@ export const newPost = async (req, res) => {
 export const updatePost = async (req, res) => {
   let imgUrl = "";
   try {
-    const cloudinaryResult = await cloudinary(req.body.img);
+    const file = dataUri(req).content;
+    const cloudinaryResult = await cloudinary(file);
     imgUrl = cloudinaryResult.url;
   } catch (err) {
     return res.status(503).send(err);
@@ -60,7 +63,7 @@ export const updatePost = async (req, res) => {
     const input = {
       title: req.body.title,
       author: req.body.author,
-      img: imgUrl,
+      image: imgUrl,
       body: req.body.body,
     };
 
