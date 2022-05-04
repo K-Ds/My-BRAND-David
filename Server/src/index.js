@@ -16,6 +16,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Start Server
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 

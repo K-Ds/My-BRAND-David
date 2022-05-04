@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/commonStyles.css" />
-    <link rel="stylesheet" href="css/blogIndividual.css" />
+    <link rel="stylesheet" href="css/blog-individual.css" />
     <title>My Blogs</title>
   </head>
   <body>
@@ -83,64 +83,7 @@
       <h1 class="blogs__heading">My Blogs</h1>
     </div>
 
-    <article class="blog-aricle">
-      <div class="container">
-        <header class="blog__header">
-          <h2 class="blog__title">3 ways to design better and faster</h2>
-          <div class="blog__img">
-            <img src="images/computer.jpeg" alt="picture of a computer" />
-          </div>
-        </header>
-        <div class="blog__body">
-          <p>
-            Have you ever had the perfect experience, start to finish, during a
-            design project? Probably not, but certainly you’ve had projects that
-            felt right and others that went nowhere — like that 125th revision
-            to a business card design. Here is a list of 15 things you might
-            find helpful when coping with a complex project-based business, such
-            as design.
-          </p>
-          <h3>Finding inspirations</h3>
-          <p>
-            Great ideas are never born in a vacuum. In other words, unless you
-            look at what people did in the past, it’s hard to do something
-            better in the future. Before Internet, smart designers solved this
-            problem with design “look-books”. These were essentially large
-            catalogues containing hundreds of design pieces gathered around the
-            world, usually classified by type of work (brochure, poster,
-            interactive, etc.). Thanks to Google, doing design research has
-            never been easier in the history of human kind. Today, designers use
-            Google. It’s faster, cheaper and works like a charm. For example, if
-            you’re working on a “save the date” card, search for “inspiring save
-            the date designs”. If you’re designing a logo with an animal, search
-            for “cute animal logos”. If you need black and white icon designs,
-            search for the term. Look at what others did before you and you’ll
-            know what to do next.
-          </p>
-          <h3>Open a Dribble account</h3>
-          <p>
-            If you want to keep yourself immersed in a talent of exceptional,
-            mind blowing design work, you need a Dribble account. Believe me –
-            the stuff you’ll see on this social network is simply mind blowing.
-            If that isn’t sweet enough, you can even download the color palette
-            of any design you like. Just don’t tell your clients you did.
-          </p>
-          <h3>Follow the right people</h3>
-          <p>
-            Some designers and companies are like news reporters for graphic
-            design or they produce newsworthy stuff themselves. To stay on top
-            of events and get a never ending source of inspiration, you should
-            follow people who are defining and changing the design landscape
-            today. Take a look at this list of 154 great designers created by UK
-            designer David Airey.
-          </p>
-        </div>
-        <div class="blog__reaction">
-          <span class="iconify icon" data-icon="ant-design:heart-filled"></span>
-          <span>238</span>
-        </div>
-      </div>
-    </article>
+    <article class="blog-aricle" id="blog"></article>
 
     <section class="section comments-section">
       <div class="container">
@@ -167,46 +110,7 @@
           </div>
         </div>
 
-        <div class="comments__list">
-          <div class="comment__card">
-            <img class="profile__img" src="images/computer.jpeg" alt="" />
-            <div class="comment__data">
-              <span class="comment__user">Kar Dav</span>
-              <p class="comment__message">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                laudantium illo possimus error? Illum, labore. Quod omnis
-                reprehenderit sit atque, quasi tenetur iure error soluta.
-              </p>
-              <time datetime="2018-07-07">July 7 2018</time>
-            </div>
-          </div>
-
-          <div class="comment__card">
-            <img class="profile__img" src="images/computer.jpeg" alt="" />
-            <div class="comment__data">
-              <span class="comment__user">Kar Dav</span>
-              <p class="comment__message">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                laudantium illo possimus error? Illum, labore. Quod omnis
-                reprehenderit sit atque, quasi tenetur iure error soluta.
-              </p>
-              <time datetime="2018-07-07">July 7 2018</time>
-            </div>
-          </div>
-
-          <div class="comment__card">
-            <img class="profile__img" src="images/computer.jpeg" alt="" />
-            <div class="comment__data">
-              <span class="comment__user">Kar Dav</span>
-              <p class="comment__message">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                laudantium illo possimus error? Illum, labore. Quod omnis
-                reprehenderit sit atque, quasi tenetur iure error soluta.
-              </p>
-              <time datetime="2018-07-07">July 7 2018</time>
-            </div>
-          </div>
-        </div>
+        <div class="comments__list" id="commentsList"></div>
       </div>
     </section>
 
