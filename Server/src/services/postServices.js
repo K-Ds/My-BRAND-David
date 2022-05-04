@@ -84,3 +84,23 @@ export const likePost = async (postId) => {
 
   return post;
 };
+
+export const disLikePost = async (postId) => {
+  // const post = await Post.findById(postId);
+
+  // if (!post || Object.keys(post).length === 0) {
+  //   throw new Error("Brog not found");
+  //   return;
+  // }
+
+  const post = await Post.updateOne(
+    {
+      _id: postId,
+    },
+    {
+      $inc: { likes: -1 },
+    }
+  );
+
+  return post;
+};
