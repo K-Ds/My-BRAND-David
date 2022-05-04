@@ -1,4 +1,4 @@
-import * as validator from "./verification.js";
+import * as validator from "../verification.js";
 
 let newBlogForm = document.querySelector("#newBlogForm");
 let newBlogImg = newBlogForm.elements["blog-img"];

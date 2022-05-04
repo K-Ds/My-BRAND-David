@@ -1,6 +1,8 @@
 import chai from "chai";
 import request from "supertest";
 import mongoose from "mongoose";
+import path from "path";
+
 import Post from "../../../models/Post";
 import User from "../../../models/User";
 
@@ -111,13 +113,12 @@ describe("/api/posts", () => {
       await userLocal.save();
       const token = userLocal.generateToken();
 
-      const post = postUnit("Post 1");
-      delete post.author;
-
       const res = await request(server)
         .post("/api/posts")
-        .send(post)
-        .set("x-auth-token", token);
+        .set("x-auth-token", token)
+        .field("Content-Type", "multipart/form-data")
+        .field("title", "Test Article")
+        .field("author", "tester");
 
       expect(res.status).to.be.eql(400);
     });
@@ -131,8 +132,12 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post("/api/posts")
-        .send(postUnit("Post 1"))
-        .set("x-auth-token", token);
+        .set("x-auth-token", token)
+        .field("Content-Type", "multipart/form-data")
+        .field("title", "Test Article")
+        .field("author", "tester")
+        .field("body", "lorem ipsum test body")
+        .attach("image", path.resolve(__dirname, "images/sample.jpg"));
 
       const post = Post.findOne({ title: "Post 1" });
 
@@ -171,15 +176,23 @@ describe("/api/posts", () => {
 
       const token = userLocal.generateToken();
 
-      const input = postUnit("Post x");
-      const post = await new Post(input).save();
+      const input = {
+        title: "test title",
+        author: "Admin",
+        image:
+          "https://res.cloudinary.com/k-ds/image/upload/v1649666870/sample.jpg",
+        body: "Lorem ipsum dolor sit amet",
+      };
 
-      delete input.author;
+      const post = await new Post(input).save();
 
       const res = await request(server)
         .put("/api/posts/" + post._id)
-        .send(input)
-        .set("x-auth-token", token);
+        .set("x-auth-token", token)
+        .field("Content-Type", "multipart/form-data")
+        .field("Content-Type", "multipart/form-data")
+        .field("title", "Test Article")
+        .field("author", "tester");
 
       expect(res.status).to.be.eql(400);
     });
@@ -193,8 +206,13 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .put("/api/posts/" + postId)
-        .send(postUnit("Post 1"))
-        .set("x-auth-token", token);
+        .set("x-auth-token", token)
+        .field("Content-Type", "multipart/form-data")
+        .field("Content-Type", "multipart/form-data")
+        .field("title", "Test Article")
+        .field("author", "tester")
+        .field("body", "lorem ipsum test body")
+        .attach("image", path.resolve(__dirname, "images/sample.jpg"));
 
       expect(res.status).to.be.eql(404);
     });
@@ -206,23 +224,32 @@ describe("/api/posts", () => {
 
       const token = userLocal.generateToken();
 
-      const input = postUnit("Post x");
+      const input = {
+        title: "test title",
+        author: "Admin",
+        image:
+          "https://res.cloudinary.com/k-ds/image/upload/v1649666870/sample.jpg",
+        body: "Lorem ipsum dolor sit amet",
+      };
 
       const post = await new Post(input).save();
 
       // Change title of post
-      input.title = "Post y";
 
       const res = await request(server)
         .put("/api/posts/" + post._id)
-        .send(input)
-        .set("x-auth-token", token);
+        .set("x-auth-token", token)
+        .field("Content-Type", "multipart/form-data")
+        .field("title", "test article updated")
+        .field("author", "tester")
+        .field("body", "lorem ipsum test body")
+        .attach("image", path.resolve(__dirname, "images/sample.jpg"));
 
-      const postNew = Post.findOne({ title: "Post y" });
+      const postNew = Post.findOne({ title: "test title updated" });
 
       expect(res.status).to.be.eql(201);
-      expect(res.body).to.have.property("title", "Post x");
       expect(postNew).not.to.be.null;
+      expect(res.body).to.have.property("title", "test title");
     });
   });
 
@@ -234,7 +261,7 @@ describe("/api/posts", () => {
       expect(res.status).to.be.eql(401);
     });
 
-    it("should return 403, if not logged in", async () => {
+    it("should return 403, if not admin", async () => {
       const userLocal = createUser(false);
       await userLocal.save();
       const token = userLocal.generateToken();
@@ -290,5 +317,139 @@ describe("/api/posts", () => {
     });
 
     it("should retrun 404, if blog not found", async () => {});
+  });
+
+  // Comment post
+  describe("POST /:id/comment", () => {
+    it("should return 401, if no loged in", async () => {
+      const res = await request(server).post("/api/posts/1/comment");
+
+      expect(res.status).to.be.eql(401);
+    });
+
+    it("should return 400, if invalid Id is passed", async () => {
+      const userLocal = createUser(true);
+      await userLocal.save();
+      const token = userLocal.generateToken();
+
+      const res = await request(server)
+        .post("/api/posts/1/comment")
+        .set("x-auth-token", token);
+
+      expect(res.status).to.be.eql(400);
+    });
+
+    it("should return 400, if the user does not provide all the requried parameters", async () => {
+      const userLocal = createUser(true);
+
+      await userLocal.save();
+
+      const token = userLocal.generateToken();
+      const postId = mongoose.Types.ObjectId();
+
+      const res = await request(server)
+        .post(`/api/posts/${postId}/comment`)
+        .set("x-auth-token", token)
+        .send({ user: "tester" });
+
+      expect(res.status).to.be.eql(400);
+    });
+
+    it("should return 404, if blog is not found", async () => {
+      const userLocal = createUser(true);
+      await userLocal.save();
+
+      const token = userLocal.generateToken();
+
+      const postId = mongoose.Types.ObjectId();
+
+      const res = await request(server)
+        .post(`/api/posts/${postId}/comment`)
+        .set("x-auth-token", token)
+        .send({
+          user: "tester",
+          content: "comment test",
+        });
+
+      expect(res.status).to.be.eql(404);
+    });
+
+    it("should save the comment and return 204", async () => {
+      const userLocal = createUser(true);
+
+      await userLocal.save();
+
+      const token = userLocal.generateToken();
+
+      const input = {
+        title: "test title",
+        author: "Admin",
+        image:
+          "https://res.cloudinary.com/k-ds/image/upload/v1649666870/sample.jpg",
+        body: "Lorem ipsum dolor sit amet",
+      };
+
+      const post = await new Post(input);
+      post.save();
+
+      // Change title of post
+
+      const res = await request(server)
+        .post(`/api/posts/${post._id}/comment`)
+        .set("x-auth-token", token)
+        .send({
+          user: "tester",
+          content: "comment test",
+        });
+
+      const postNew = await Post.findById(post._id);
+      expect(res.status).to.be.eql(204);
+      expect(postNew.comments[0]).to.have.property("content", "comment test");
+    });
+  });
+
+  // Like post
+  describe("POST /:id/like", () => {
+    it("should return 401, if blog is not found", async () => {
+      const userLocal = createUser(true);
+      await userLocal.save();
+
+      const token = userLocal.generateToken();
+
+      const postId = mongoose.Types.ObjectId();
+
+      const res = await request(server)
+        .post(`/api/posts/${postId}/comment`)
+        .send();
+
+      expect(res.status).to.be.eql(401);
+    });
+
+    it("should like the post and return 201", async () => {
+      const userLocal = createUser(true);
+
+      await userLocal.save();
+
+      const input = {
+        title: "test title",
+        author: "Admin",
+        image:
+          "https://res.cloudinary.com/k-ds/image/upload/v1649666870/sample.jpg",
+        body: "Lorem ipsum dolor sit amet",
+      };
+
+      const post = await new Post(input).save();
+
+      // Change title of post
+
+      const res = await request(server)
+        .post(`/api/posts/${post._id}/like`)
+        .send();
+
+      const postNew = await Post.findById(post._id);
+
+      expect(res.status).to.be.eql(201);
+      expect(postNew.likes).to.be.eql(1);
+    });
   });
 });

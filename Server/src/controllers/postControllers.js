@@ -106,7 +106,7 @@ export const likePost = async (req, res) => {
   try {
     await postServices.likePost(postId);
 
-    return res.status(204).json({ message: "Blog Liked" });
+    return res.status(201).json({ message: "Blog Liked" });
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }

@@ -1,4 +1,4 @@
-import * as validator from "./verification.js";
+import * as validator from "../verification.js";
 
 function loginError(field) {
   field.classList.add("error");

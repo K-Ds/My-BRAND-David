@@ -1,4 +1,4 @@
-import * as validator from "./verification.js";
+import * as validator from "../verification.js";
 
 let contactForm = document.querySelector("#contact-form");
 let contactName = contactForm.elements["name"];
