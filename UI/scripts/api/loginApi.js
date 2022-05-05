@@ -1,11 +1,11 @@
 const baseUrl = "https://my-brand-david.herokuapp.com/api/auth";
 
-export const login = async (creds) => {
+export const login = async (credentials) => {
   try {
     const res = await fetch(baseUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(creds),
+      body: JSON.stringify(credentials),
     });
 
     if (res.ok) {
