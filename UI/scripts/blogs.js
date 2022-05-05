@@ -15,9 +15,7 @@ const renderBlogs = async () => {
             <div class="blog__summary">
               <h3 class="blog__title">${post.title}</h3>
               <p class="blog__description">
-                Have you ever had the perfect experience, start to finish,
-                during a design project? Probably not, but certainly you’ve had
-                projects that felt right and others that went nowhere
+                ${post.summary}
               </p>
             </div>
             <div class="blog__reactions">
