@@ -1,11 +1,21 @@
-const baseUrl = "https://my-brand-david.herokuapp.com/api/posts";
+const baseUrl = "http://localhost:5000/api/posts";
 
 export const getBlogs = async () => {
   try {
     let res = await fetch(baseUrl);
-    console.log(res);
 
-    return await res.json();
+    const data = await res.json();
+
+    const posts = data.map((post) => {
+      let postrevised = { ...post };
+      postrevised.summary =
+        post.body && post.body > 70
+          ? post.body.slice(0, max).split(" ").slice(0, -1).join(" ")
+          : post.body;
+
+      return postrevised;
+    });
+    return posts;
   } catch (error) {
     console.log(error);
   }

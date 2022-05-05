@@ -1,5 +1,5 @@
 import * as validator from "./verification.js";
-import * as api from "./api/blogsApi.js";
+import * as postApi from "./api/blogsApi.js";
 
 let postId;
 
@@ -22,7 +22,7 @@ commentForm.addEventListener("submit", async (e) => {
 
 const comment = async (comment) => {
   const commentMessage = document.getElementById("commentMessage");
-  const res = await api.postComment(postId, comment);
+  const res = await postApi.postComment(postId, comment);
 
   if (res === "success") {
     location.reload();
@@ -53,7 +53,7 @@ const setLike = (status) => {
 const like = async () => {
   const likeMessage = document.getElementById("likeMessage");
   if (!hasLiked()) {
-    const res = await api.postLike(postId);
+    const res = await postApi.postLike(postId);
     if (res === "success") {
       setLike("true");
       location.reload();
@@ -61,7 +61,7 @@ const like = async () => {
     }
     return;
   } else {
-    const res = await api.postDislike(postId);
+    const res = await postApi.postDislike(postId);
     if (res === "success") {
       setLike("false");
       location.reload();
@@ -100,7 +100,7 @@ const renderBlog = async () => {
   postId = params.get("id");
 
   const blogContainer = document.getElementById("blog");
-  const blog = await api.getOneBlog(postId);
+  const blog = await postApi.getOneBlog(postId);
 
   if (blog === "error" || !blog) {
     blogContainer.innerHTML = `<h2 class="blog__title">Brog Not found</h2>`;
@@ -129,22 +129,13 @@ const renderBlog = async () => {
   blogContainer.innerHTML = html;
   renderComments(blog.comments);
 
-  console.log("reach");
   return;
 };
-
-// document.addEventListener("click", async (e) => {
-//   if (e.target && e.target.id == "likeBtn") {
-//     console.log("like");
-//     await like();
-//   }
-// });
 
 window.onload = await renderBlog();
 
 const likeBtn = document.getElementById("likeBtn");
 
 likeBtn.addEventListener("click", async (e) => {
-  console.log("like");
   await like();
 });
