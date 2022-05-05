@@ -33,8 +33,8 @@ loginForm.addEventListener("submit", async (e) => {
   return;
 });
 
-const login = async (creds) => {
-  const res = await api.login(creds);
+const login = async (credentials) => {
+  const res = await api.login(credentials);
 
   if (res === "success") {
     location.href = "admin.html";
