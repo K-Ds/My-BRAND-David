@@ -70,6 +70,7 @@
         flex-direction: row;
         padding: 1rem;
         width: 80vw;
+        height: 30rem;
     }
 
     .blog__img {

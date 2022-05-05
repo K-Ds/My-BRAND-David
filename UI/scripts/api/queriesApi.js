@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:5000/api/queries";
+const baseUrl = "https://my-brand-david.herokuapp.com/api/queries";
 
 export const postQuery = async (query) => {
   try {

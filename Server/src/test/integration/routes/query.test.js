@@ -54,7 +54,7 @@ describe("api/queries", () => {
 
       const res = await request(server)
         .get("/api/queries/" + 1)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(403);
     });
@@ -66,7 +66,7 @@ describe("api/queries", () => {
 
       const res = await request(server)
         .get("/api/queries")
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(200);
     });
@@ -87,7 +87,7 @@ describe("api/queries", () => {
 
       const res = await request(server)
         .get("/api/queries/" + 1)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(403);
     });
@@ -98,7 +98,7 @@ describe("api/queries", () => {
 
       const res = await request(server)
         .get("/api/queries/" + 1)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(400);
     });
@@ -112,7 +112,7 @@ describe("api/queries", () => {
 
       const res = await request(server)
         .get("/api/queries/" + queryId)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(404);
     });
@@ -125,7 +125,7 @@ describe("api/queries", () => {
 
       const res = await request(server)
         .get("/api/queries/" + query._id)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(200);
       expect(res.body).to.have.property("body", query.body);
