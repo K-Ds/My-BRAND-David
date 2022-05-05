@@ -27,6 +27,9 @@
     margin: 5rem 0;
 }
 
+.blog__body {
+    margin-bottom: 3rem;
+}
 
 .blog__img {
     height: 30rem;
@@ -44,12 +47,14 @@
     align-items: center;
     margin-right: 2rem;
     color: #000;
+    width: fit-content;
+    cursor: pointer;
 }
 
 .blog__reaction .icon {
-    margin-right: 1rem;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
 }
 
 @media screen and (min-width:769px) {

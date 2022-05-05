@@ -111,3 +111,15 @@ export const likePost = async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 };
+
+export const dislikePost = async (req, res) => {
+  const postId = req.params.id;
+
+  try {
+    await postServices.disLikePost(postId);
+
+    return res.status(201).json({ message: "Blog disliked" });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};

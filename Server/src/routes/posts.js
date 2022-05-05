@@ -290,11 +290,7 @@ router.delete(
  *      401:
  *        description: Not logged in
  */
-router.post(
-  "/:id/comment",
-  [auth, commentValidator],
-  postsControllers.addComment
-);
+router.post("/:id/comment", [commentValidator], postsControllers.addComment);
 
 /**
  * @openapi
@@ -321,5 +317,31 @@ router.post(
  *        description: Not logged in
  */
 router.post("/:id/like", postsControllers.likePost);
+
+/**
+ * @openapi
+ * /api/posts/{postId}/dislike:
+ *  post:
+ *    summary: Use to dislike a post.
+ *    tags:
+ *      - Posts
+ *    consumes:
+ *      - application/json
+ *    parameters:
+ *      - name: postId
+ *        in: path
+ *        required: true
+ *        description: The ID of the post.
+ *        schema:
+ *          type: string
+ *
+ *
+ *    responses:
+ *      204:
+ *        description: A successful response
+ *      401:
+ *        description: Not logged in
+ */
+router.post("/:id/dislike", postsControllers.dislikePost);
 
 export default router;
