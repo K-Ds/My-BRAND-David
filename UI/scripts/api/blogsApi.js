@@ -3,19 +3,22 @@ const baseUrl = "https://my-brand-david.herokuapp.com/api/posts";
 export const getBlogs = async () => {
   try {
     let res = await fetch(baseUrl);
+    if (res.ok) {
+      const data = await res.json();
 
-    const data = await res.json();
+      const posts = data.map((post) => {
+        let postrevised = { ...post };
+        postrevised.summary =
+          post.body && post.body.length > 120
+            ? post.body.slice(0, 120).split(" ").slice(0, -1).join(" ")
+            : post.body;
 
-    const posts = data.map((post) => {
-      let postrevised = { ...post };
-      postrevised.summary =
-        post.body && post.body > 70
-          ? post.body.slice(0, max).split(" ").slice(0, -1).join(" ")
-          : post.body;
-
-      return postrevised;
-    });
-    return posts;
+        return postrevised;
+      });
+      return posts;
+    } else {
+      console.warn("Error");
+    }
   } catch (error) {
     console.log(error);
   }

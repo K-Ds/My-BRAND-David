@@ -103,7 +103,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post("/api/posts")
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(403);
     });
@@ -115,7 +115,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post("/api/posts")
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .field("Content-Type", "multipart/form-data")
         .field("title", "Test Article")
         .field("author", "tester");
@@ -132,7 +132,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post("/api/posts")
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .field("Content-Type", "multipart/form-data")
         .field("title", "Test Article")
         .field("author", "tester")
@@ -164,7 +164,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .put("/api/posts/" + 1)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(403);
     });
@@ -188,7 +188,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .put("/api/posts/" + post._id)
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .field("Content-Type", "multipart/form-data")
         .field("Content-Type", "multipart/form-data")
         .field("title", "Test Article")
@@ -206,7 +206,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .put("/api/posts/" + postId)
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .field("Content-Type", "multipart/form-data")
         .field("Content-Type", "multipart/form-data")
         .field("title", "Test Article")
@@ -238,7 +238,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .put("/api/posts/" + post._id)
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .field("Content-Type", "multipart/form-data")
         .field("title", "test article updated")
         .field("author", "tester")
@@ -268,7 +268,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .delete("/api/posts/" + 1)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(403);
     });
@@ -280,7 +280,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .delete("/api/posts/" + 1)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(400);
     });
@@ -294,7 +294,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .delete("/api/posts/" + postId)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(404);
     });
@@ -308,7 +308,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .delete("/api/posts/" + post._id)
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       const deletedPost = await Post.findOne({ _id: post._id });
 
@@ -334,7 +334,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post("/api/posts/1/comment")
-        .set("x-auth-token", token);
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.status).to.be.eql(400);
     });
@@ -349,7 +349,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post(`/api/posts/${postId}/comment`)
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .send({ user: "tester" });
 
       expect(res.status).to.be.eql(400);
@@ -365,7 +365,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post(`/api/posts/${postId}/comment`)
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .send({
           user: "tester",
           content: "comment test",
@@ -396,7 +396,7 @@ describe("/api/posts", () => {
 
       const res = await request(server)
         .post(`/api/posts/${post._id}/comment`)
-        .set("x-auth-token", token)
+        .set("Authorization", `Bearer ${token}`)
         .send({
           user: "tester",
           content: "comment test",
