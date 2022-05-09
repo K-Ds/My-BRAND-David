@@ -518,7 +518,7 @@ nav .profile-details i {
 
 @media screen and (min-width:769px) {
     .blog__card {
-        grid-template-columns: 200px 1fr 100px;
+        grid-template-columns: 300px 1fr 100px;
     }
 
     .blog__options {

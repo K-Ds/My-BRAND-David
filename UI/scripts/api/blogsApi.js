@@ -1,4 +1,5 @@
 const baseUrl = "https://my-brand-david.herokuapp.com/api/posts";
+// const baseUrl = "http://localhost:5000/api/posts";
 
 export const getBlogs = async () => {
   try {
@@ -76,6 +77,72 @@ export const postDislike = async (postId) => {
   try {
     let res = await fetch(`${baseUrl}/${postId}/dislike`, {
       method: "POST",
+    });
+
+    if (res.ok) {
+      return "success";
+    } else {
+      return await res.json();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deletePost = async (postId) => {
+  try {
+    let authToken = localStorage.getItem("token");
+    if (!authToken) {
+      location.href = "login.html";
+    }
+
+    let res = await fetch(`${baseUrl}/${postId}`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${authToken}` },
+    });
+
+    if (res.ok) {
+      return "success";
+    } else {
+      location.href = "login.html";
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const updatePost = async (postId, formData) => {
+  let authToken = localStorage.getItem("token");
+  if (!authToken) {
+    location.href = "login.html";
+  }
+  try {
+    let res = await fetch(`${baseUrl}/${postId}`, {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${authToken}` },
+      body: formData,
+    });
+
+    if (res.ok) {
+      return "success";
+    } else {
+      return await res.json();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const newPost = async (formData) => {
+  let authToken = localStorage.getItem("token");
+  if (!authToken) {
+    location.href = "login.html";
+  }
+  try {
+    let res = await fetch(`${baseUrl}`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${authToken}` },
+      body: formData,
     });
 
     if (res.ok) {

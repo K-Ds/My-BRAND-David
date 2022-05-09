@@ -4,6 +4,7 @@ import swaggerUi from "swagger-ui-express";
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
   swaggerDefinition: {
+    components: {},
     info: {
       version: "1.0.0",
       title: "Blogs REST API",
@@ -14,7 +15,7 @@ const swaggerOptions = {
     },
     servers: [`http://localhost:${process.env.NODE_ENV}`],
   },
-  apis: [`${__dirname}/routes/*.js`],
+  apis: [`${__dirname}/openapi.yaml`],
 };
 
 const swaggerSpec = swaggerJsDoc(swaggerOptions);

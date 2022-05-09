@@ -28,14 +28,20 @@ export const createPost = async (input) => {
 
 // update a blog
 export const updatePost = async (postId, input) => {
-  const updatePost = await Post.findByIdAndUpdate(postId, input);
+  const toUpdatePost = await Post.findById(postId);
 
-  if (!updatePost) {
+  if (!toUpdatePost) {
     throw new Error("Brog not found");
     return;
   }
 
-  return updatePost;
+  if (!input.hasOwnProperty("image")) {
+    input.image = toUpdatePost.image;
+  }
+
+  const updatedPost = await Post.findByIdAndUpdate(postId, input);
+
+  return updatedPost;
 };
 
 // Delete Blog from DB

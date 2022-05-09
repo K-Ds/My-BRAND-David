@@ -2,3 +2,10 @@
     width: 90%;
     padding-top: 10rem;
 }
+
+#blogImage {
+    width: 20rem;
+    height: 20rem;
+    align-self: flex-start;
+    margin-left: 10rem;
+}

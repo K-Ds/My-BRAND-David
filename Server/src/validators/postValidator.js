@@ -6,7 +6,7 @@ const schema = Joi.object({
   body: Joi.string().required(),
 });
 
-const validationPost = (req, res, next) => {
+export const validationPost = (req, res, next) => {
   const validePost = schema.validate({
     title: req.body.title,
     author: req.body.author,
@@ -20,6 +20,27 @@ const validationPost = (req, res, next) => {
   }
   if (validateImg.error) {
     return res.status(400).json({ error: validateImg.error });
+  }
+
+  next();
+};
+
+export const validationUpdatePost = (req, res, next) => {
+  const validePost = schema.validate({
+    title: req.body.title,
+    author: req.body.author,
+    body: req.body.body,
+  });
+
+  if (req.file) {
+    const validateImg = validationImage(req.file);
+    if (validateImg.error) {
+      return res.status(400).json({ error: validateImg.error });
+    }
+  }
+
+  if (validePost.error) {
+    return res.status(400).json({ error: validePost.error.details[0].message });
   }
 
   next();

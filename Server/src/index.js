@@ -1,6 +1,5 @@
 import express from "express";
 import "dotenv/config";
-import config from "config";
 import bodyParser from "body-parser";
 import mongoose from "./db/mongoose";
 import cors from "cors";
