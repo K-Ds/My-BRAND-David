@@ -5,8 +5,8 @@
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/commonStyles.css" />
-    <link rel="stylesheet" href="css/blogsStyles.css" />
     <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/blog-edit.css" />
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
@@ -20,20 +20,20 @@
       </div>
       <ul class="nav__links">
         <li>
-          <a href="#dashboard" class="active">
+          <a href="admin.html#dashboard" class="active">
             <i class="bx bx-grid-alt"></i>
             <span class="link__name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="#blogs">
+          <a href="admin.html#blogs">
             <i class="bx bx-box"></i>
             <span class="link__name">Blogs</span>
           </a>
         </li>
 
         <li>
-          <a href="#messages">
+          <a href="admin.html#messages">
             <i class="bx bx-pie-chart-alt-2"></i>
             <span class="link__name">Messages</span>
           </a>
@@ -56,9 +56,11 @@
             <span class="link__name">Setting</span>
           </a>
         </li>
-        <li class="log_out" id="logoutBtn">
-          <i class="bx bx-log-out"></i>
-          <span class="link__name">Log out</span>
+        <li class="log_out">
+          <a href="blogs.html">
+            <i class="bx bx-log-out"></i>
+            <span class="link__name">Log out</span>
+          </a>
         </li>
       </ul>
     </aside>
@@ -76,53 +78,36 @@
         </div>
       </nav>
 
-      <section id="dashboard" class="dashboard-section">
-        <div class="overview-boxes">
-          <div class="box">
-            <div class="right-side">
-              <div class="box-topic">Total blogs</div>
-              <div id="postsCount" class="number"></div>
-            </div>
-            <i class="bx bxl-blogger cart two"></i>
+      <div class="edit-from">
+        <form action="" class="contact__form" id="newBlogForm">
+          <div class="form__group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" />
+            <small></small>
           </div>
-          <div class="box">
-            <div class="right-side">
-              <div class="box-topic">Total messages</div>
-              <div id="queriesCount" class="number"></div>
-            </div>
-            <i class="bx bxl-blogger cart two"></i>
+          <div class="form__group">
+            <label for="blog-img">Author:</label>
+            <input type="text" name="blog-author" id="blog-author" />
+            <small></small>
           </div>
-          <div class="box">
-            <div class="right-side">
-              <div class="box-topic">Total likes</div>
-              <div class="number">12,876</div>
-            </div>
-            <i class="bx bxs-heart cart three"></i>
+
+          <div class="form__group">
+            <label for="blog-img">Blog picture:</label>
+            <input type="file" name="blog-img" id="blog-img" />
+            <small></small>
           </div>
-        </div>
-      </section>
 
-      <section id="blogs" class="section--admin">
-        <header class="main__header">
-          <h1 class="main__heading">Blogs</h1>
-          <a href="blog-new.html" class="btn btn--primary blog-add__btn"
-            >New Blog</a
-          >
-        </header>
-
-        <div id="blogList" class="blog__list"></div>
-      </section>
-
-      <section id="messages" class="section--admin">
-        <header class="main__header">
-          <h1 class="main__heading">Messages</h1>
-        </header>
-
-        <div class="message__list" id="messageList"></div>
-      </section>
+          <div class="form__group">
+            <label for="blog-body">BLog Body:</label>
+            <textarea name="blog-body" id="blog-body"></textarea>
+            <small></small>
+          </div>
+          <button class="btn btn--accent form__btn" type="save">Submit</button>
+        </form>
+      </div>
     </main>
 
-    <script type="module" src="scripts/admin.js"></script>
     <script src="scripts/adminCommon.js"></script>
+    <script type="module" src="scripts/blogNew.js"></script>
   </body>
 </html>

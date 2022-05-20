@@ -50,22 +50,27 @@ export const newPost = async (req, res) => {
 
 // Update a post
 export const updatePost = async (req, res) => {
-  let imgUrl = "";
-  try {
-    const file = dataUri(req).content;
-    const cloudinaryResult = await cloudinary(file);
-    imgUrl = cloudinaryResult.url;
-  } catch (err) {
-    return res.status(503).send(err);
+  let imgUrl;
+  if (req.file) {
+    try {
+      const file = dataUri(req).content;
+      const cloudinaryResult = await cloudinary(file);
+      imgUrl = cloudinaryResult.url;
+    } catch (err) {
+      return res.status(503).send(err);
+    }
   }
+
   try {
     const postId = req.params.id;
-    const input = {
+    let input = {
       title: req.body.title,
       author: req.body.author,
-      image: imgUrl,
       body: req.body.body,
     };
+    if (imgUrl) {
+      input.image = imgUrl;
+    }
 
     const result = await postServices.updatePost(postId, input);
     return res.status(201).json(result);

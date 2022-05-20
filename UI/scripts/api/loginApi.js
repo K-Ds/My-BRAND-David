@@ -1,4 +1,5 @@
 const baseUrl = "https://my-brand-david.herokuapp.com/api/auth";
+// const baseUrl = "http://localhost:5000/api/auth";
 
 export const login = async (credentials) => {
   try {
@@ -11,11 +12,11 @@ export const login = async (credentials) => {
     if (res.ok) {
       const token = await res.json();
 
-      localStorage.setItem(token, token.token);
+      localStorage.setItem("token", token.token);
 
       return "success";
     } else {
-      return res.json();
+      return await res.json();
     }
   } catch (e) {
     console.log(e);
